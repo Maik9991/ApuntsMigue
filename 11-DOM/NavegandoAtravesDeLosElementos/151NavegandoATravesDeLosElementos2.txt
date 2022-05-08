@@ -1,0 +1,20 @@
+*************************
+ELEMENTOS PADRE Y HERMANOS
+*************************
+- Devuelve el nodo padre del elemento seleccionado
+
+---------------------------------------
+Element.parentNode
+--------------------------------------
+
+- Devuelve el nodo anterior al nodo seleccionado
+
+---------------------------------------
+Element.previousSibling
+---------------------------------------
+
+- Devuelve el nodo siguiente al nodo seleccionado
+
+-----------------------------------------
+Element.nextSibling
+-------------------------------------------
