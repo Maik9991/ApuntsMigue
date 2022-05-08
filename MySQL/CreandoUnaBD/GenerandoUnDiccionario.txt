@@ -1,6 +1,0 @@
-Diccionario de datos
-***********************************************************
-- En el deberán describirse las características que identifiquen a cada objeto
-- Es documentar
-- Doble clic a una tabla.
-- El icono de la derecha del campo inferior me abre un cuadro de comentarios

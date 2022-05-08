@@ -1,0 +1,11 @@
+
+HAY UN ORDEN
+
+- Para importar registros, las tablas que no tienen foreignKey son candidatas a ser llenadas primero
+- Pendientes tiene 3 foreignKeys, eso quiere decir que para que pueda existir un pendiente, deben haber las otras tablas
+    - Depende de personas y estatus pendientes. Cuando tenga esas dos podré llenar Pendientes
+- Personas no tiene llave foranea, candidata tambien a la primera
+- Si lleno la tabla personas, puedo llenar la tabla usuarios
+
+********************************************************************************************
+
