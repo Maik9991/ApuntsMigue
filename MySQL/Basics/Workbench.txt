@@ -1,0 +1,89 @@
+# Sistema Cliente-Servidor
+
+- 3 componentes: CLIENTE-->RED-->SERVIDOR
+    - clientes: pc, moviles
+    - red: www, internet, fibra
+    - servidor: es una computadora con buena RAM y Disco duro que almacena y provee de servicios sin descanso
+        - Tiene un SO robusto
+
+- Una WAN es una red de más de un servidor
+- Data Base Management System (DBMS) Sistema Manejador de bases de datos, como MySQL
+- Los clientes requieren  de un software para realizar consultas, y se apoyan en APIS
+- Tanto Cliente como Servidor requieren de Software, y la comunicación será vía SQL(Structured Query Language).
+la cual será enviado por medio de una API y procesado por el DBMS del lado del servidor, ya que será quien interpretará las consultas y nos devolverá los resultados del lado del cliente. 
+
+***********************************************************************************************
+
+# MODELO ENTIDAD-RELACIÓN
+
+## Es un diagrama de flujo de cómo debemos diseñar las bases de datos
+
+- Nombre, apellido,rfc dirección son atributos que apuntan a la entidad ----> CLIENTE------>a la acción COMPRA------->a la entidad PRODUCTOS
+- De productos tenemos nombre, código, y precio unitario
+- PRODUCTOS ---->SUMINISTRO------>PROVEEDORES
+- A Proveedores apuntan nombre, NIE, dirección
+
+- Los datos son almacenados en tablas
+- Estan constituidas por columnas y por renglones, también llamados campos o registros
+- Estan unidas por relaciones: 
+    - de uno a uno, 
+    - de uno a muchos,
+    - de muchos a muchos
+- Una entidad es una tabla de base de datos. 
+- Igual que hay entidades con presencia física, como puede ser una tabla personas, la entidad personas
+- También hay entidades conceptuales: una asignatura, un software... 
+- A las entidades físicas se las conoce como ENTIDADES CONCRETAS
+- A las entidades conceptuales se las conoce como ENTIDADES ABSTRACTAS
+
+- Un rectángulo en un diagrama de flujo es una entidad/tabla
+- Los atributos son una característica o propiedad que describe a una entidad.
+- Se representan con un óvalo y son renglones en una tabla
+- Puede haber combinaciones de atributos para formar claves compuestas
+- Los rombos son acciones
+
+> el primarykey (id) es un identificador único, un índice
+
+******************************************************************************************
+
+# Relación entre 2 Tablas
+
+- La relación la forman con sus valores, o columnas en específico.
+- De uno a muchos es cuando por ejemplo un usuario tiene varias cuentas con distinto nombre
+    - Su id se repite en cuentas de usuario, pero como usuario en personas solo está una vez
+- La foreign key es una o mas llaves que refieren a la primary key
+- Es necesario crear una entidad referencial en MySQL para no crear datos no-válidos
+    - Esto significa que en cuentas de usuario solo voy a poder introducir un id existente en personas
+
+********************************************************************************************
+
+# TABLA EJEMPLO PENDIENTES PARTE 1
+
+- PERSONAS es una entidad concreta con sus atributos: correo, teléfono, dirección
+- PENDIENTES es otra entidad abstracta con sus atributos: la fecha en que se creó, cuando es la entrega, observación 
+- Tengo varias llaves foráneas: que persona asignó ese pendiente y a quién se le asigno
+- USUARIOS es otra entidad con atributos como : id, contraseña y una llave foránea que persona corresponde.
+- Un pendiente va a tener un status, STATUS PENDIENTES es otra tabla
+
+*************************************************************************************
+
+# PARTE 2
+
+- Cada tabla tiene un id de tipo INT (entero)
+- En todas estan marcados con la casilla de autoincrementable AI
+- Dos de ellas, pendientes y personas tienen llaves foráneas.
+    - Llave foránea es una llave que tiene relación con una primaryKey
+- Una persona puede tener varios usuarios, por lo que es una relaciónd e uno a muchos
+- idPersonas es un standard muy legible
+- Se recomienda que las llaves foráneas sean No NULO (NN), que no puedan ir vacías
+    - En este caso significa que cuando das de alta un pendiente, forzosamente debe de tener un status 
+
+*************************************************************************************************
+
+## TIPOS DE DATOS:
+    
+    - INT: entero
+    - DATETIME: fecha y hora
+    - VARCHAR(250): texto
+    - entre otros...
+
+Se usa camelCase para nombrar las variables
