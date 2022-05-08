@@ -1,0 +1,37 @@
+# Pasar valor al state
+
+- Importo el state
+
+------------------------------
+import {useState} from 'react'
+------------------------------
+
+
+- Lo declaro
+
+-------------------------------
+const [state, setState] = useState(0)
+-------------------------------
+
+- Puedo colocar el state en el value del input
+
+-------------------------------------
+<input type="number" name="presupuesto" value={state} />
+-------------------------------------
+
+- Para que se vaya actualizando el state y ver lo que imprimo en pantalla uso el onChange
+
+-------------------------------------------------------------------------------------------------
+<input type="number" name="presupuesto" value={state} onChange={(e)=>setState(e.target.value)} />
+-------------------------------------------------------------------------------------------------
+
+- En el onSubmit del formulario le añado la función que voy a crear handlePresupuesto()
+- Cuando presione el botón de type="submit" se va a ejecutar esta función
+
+-------------------------------------------------------------------------
+const handlePresupuesto= (e) =>{
+	e.preventDefault()		
+
+}
+--------------------------------------------------------------------------
+

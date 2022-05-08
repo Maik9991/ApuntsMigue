@@ -1,0 +1,30 @@
+- Insertar un h1
+
+-----------------------------------------------
+let h1 = document.createElement ('h1')
+
+h1.textContent = "Esto es un h1"
+
+document.body.prepend(h1)
+---------------------------------------------------------
+
+- Con innerHTML puedo ingresar etiquetas html directamente 
+
+-----------------------------------------------------------
+h1.innerHTML = "Esto es un h1 <span> con un span </span>"
+----------------------------------------------------------
+
+Crear un texto para incluir en un elemento que haya seleccionado con textNode
+
+---------------------------------------------------------------------------------
+let texto = document.createTextNode('Titulo h1')
+h1.append(texto)
+--------------------------------------------------------------------------------
+
+Podemos introducir texto en un html con innerHTML, textContent o con createTextNode y append()
+
+Con isConnected, si el elemento existe, devolverá true
+
+----------------------------------------------------------
+console.log(h1.isConnected)
+---------------------------------------------------------

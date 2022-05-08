@@ -1,0 +1,34 @@
+
+- cloneNode devuelve un duplicado del nodo seleccionado
+- Si guardara el elemento en una nueva variable, los cambios que le haga se harán en ambas (por referencia)
+- Con cloneNode creo una copia para que eso no suceda 
+- tengo una ul con el id tareas
+
+------------------------------
+let ul = document.querySelector("#tareas")
+let copiaUl = ul.cloneNode();
+------------------------------
+
+- En este caso solo ha copiado las etiquetas padre sin las li de su interior
+- Para que tome sus hijos, debo pasarle el valor de true que es deep:true 
+
+*********************************
+element.cloneNode( deep )
+*********************************
+---------------------------------------------
+let copiaUl = ul.cloneNode( true )
+----------------------------------------------
+
+- Lo agrego con document.body.append(copiaUl)
+
+- El clone no copia los eventos como el onCLick, solo copia el árbol pero SI copia el id
+- Una forma rápida es usar
+
+---------------------------------
+copiaUl.id='duplicado-lista'
+---------------------------------
+
+
+
+
+

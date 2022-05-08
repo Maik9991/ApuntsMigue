@@ -1,0 +1,31 @@
+- En aplicaciones complejas como la validación de un formulario, es aconsejable agrupar el código
+en una función externa y llamarla desde el html
+
+- en las funciones externas no se puede usar la variable this, por lo que es necesario pasársela
+- En este caso this hace referencia al element section
+
+		NOTA: importante USAR EL BREAK al final de cada caso del switch
+
+------------------------------------------------------------------------------------------------------
+    <section style="border:2px solid black " onmouseover="resalta(this)" onemouseout="resalta(this)">
+        
+		<input type="text" value="" >
+    </section>
+    
+<script>
+         function resalta(element){
+            switch(element.style.borderColor){
+                
+                case 'black':
+                    element.style.backgroundColor = 'black';
+                    element.style.borderColor = 'white';
+                    break;
+                    
+                case 'white':
+                 element.style.backgroundColor = 'white';
+                 element.style.borderColor = 'black'
+                break;
+            }
+         }
+-----------------------------------------------------------------------------------------------------
+

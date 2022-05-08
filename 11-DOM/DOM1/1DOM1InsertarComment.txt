@@ -1,0 +1,70 @@
+
+- Crear un comentario nodo en memoria
+
+---------------------------------------------
+document.createComment( data )
+---------------------------------------------
+
+- Crear un elemento html en memoria
+
+--------------------------------------------
+document.createElement ( tagName )
+-------------------------------------------
+
+- Crear un node de texto en memoria
+
+--------------------------------------------
+document.createTextNode( data )
+--------------------------------------------
+
+- Devuelve un valor booleano si el nodo esta dentro del DOM o Documento principal
+
+---------------------------------------------
+console.log(h1.isConnected)
+--------------------------------------------
+
+- Devuelve un duplicado del nodo seleccionado
+
+---------------------------------------------
+Node.cloneNode ( deep )
+----------------------------------------------
+
+- Crea un nuevo fragmento del documento vacío, dónde se pueden ir agregando nodos.
+- Es una buena práctica. Permite construir estructuras HTML y luego incluirlas en el DOM principal
+
+-----------------------------------------------------------------
+document.createDocumentFragment() - New DocumentFragment()
+-------------------------------------------------------------------
+
+***********************************************************************************
+
+Método prepend() y append()
+
+-----------------------------------------------------------------------------------
+let comentario = document.createComment("Comentario de prueba")
+------------------------------------------------------------------------------------
+
+- ¿Cómo agregar el comentario dentro de la etiqueta body?
+- el body ya vienen cargada en el document, igual que el head y el title
+
+
+- El método prepend me va a incluir el elemento dentro del body al principio
+
+---------------------------------------------------------------------------
+document.body.prepend(comentario)
+---------------------------------------------------------------------------
+
+- append lo hará al final
+
+---------------------------------------------------------------------------
+document.append(comentario)
+---------------------------------------------------------------------------
+
+- Puedo observar cómo ha insertado el comentario en el html en el Inspector del navegador
+- Si quisiera insertar el comentario dentro de un párrafo con id #contenido
+
+----------------------------------------------------------------------------
+pComment = document.getElementById('contenido')
+pComment.append(comentario)
+----------------------------------------------------------------------------
+

@@ -1,0 +1,38 @@
+- Fragment sirve para ahorrar recursos
+
+- Permite crear un pedazo de HTML virtual al que ir agregando elementos
+- Y luego poder insertarlos todos de una vez
+
+Ejemplo: quiero crear un li por cada elemento de un array e insertarlos en una ul en el documento
+
+-------------------------------------------------------------------------------
+let navegadores = [
+    'Explorer',
+    'Safari',
+    'Opera',
+    'Firefox',
+    'Chrome',
+    'Ecosia'
+]
+
+navegadores.forEach(navegador=>{
+    let li = document.createElement('li')
+    li.textContent= navegador;
+    listaNavegadores.append(li)
+})
+
+-----------------------------------------------------------------------------
+
+- Esto consume recursos, es mejor llevarlo todo primero a un fragment y luego hacer un único append
+
+-----------------------------------------------------------------------------
+let docFragment = document.createDocumentFragment();
+
+navegadores.forEach(navegador=>{
+    let li = document.createElement('li')
+    li.textContent= navegador;
+    docFragment.append(li)
+})
+
+	listaNavegadores.append(docFragment)
+-----------------------------------------------------------------------------

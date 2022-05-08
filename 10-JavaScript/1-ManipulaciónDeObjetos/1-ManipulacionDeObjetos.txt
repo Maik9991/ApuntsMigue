@@ -1,0 +1,20 @@
+---------------------------------------------------
+const producto = {
+    nombre:"tablet",
+    precio: 300,
+    disponible: true
+}
+----------------------------------------------------
+
+//Puedo sobreescribir aunque sea una constante
+---------------------------------------------------------------
+producto.nombre= "Monitor" //lo sobreescribe
+
+producto.imagen = "Nueva propiedad" //añadir una nueva
+
+delete producto.disponible; //borrar
+
+Object.freeze(producto) //no se puede modificar
+
+Object.seal(producto) //permite sobreescribir pero no añadir o eliminar
+--------------------------------------------------------------------------

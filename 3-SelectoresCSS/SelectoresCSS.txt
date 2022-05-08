@@ -1,0 +1,84 @@
+SelectoresCSS.md 
+
+Selector de dos clases
+----------------------------
+clase1.clase2
+---------------------------
+
+Selector de 2 clases anidadas
+-----------------------------
+.clase1 .clase2
+----------------------------
+
+Etiqueta y clase
+---------------------------
+div.clase
+--------------------------
+
+Seleccionar 2 elementos
+-----------------------------
+.texto, .otro_elemento
+----------------------------
+
+Seleccionar 1er nivel de hijos
+------------------------------
+.padre > hijo
+------------------------------
+
+Seleccionar 1er elemento despues del selector
+-------------------------------------------
+.padre tag_hijo + el_siguiente_elemento
+------------------------------------------
+
+Seleccionar por atributo
+-----------------------------------------
+Con $= tiene que terminar con...
+
+https a[href$=".com"]
+----------------------------------------
+
+Que empiecen por.. 
+------------------------------------------------------------
+ a[href^="https"] input[type="text"]
+---------------------------------------------------------
+
+El primer hijo de una lista
+------------------------------------------------------
+ul li:first-child 
+
+ul li:first-of-type
+------------------------------------------------------
+
+El ultimo elemento de una lista
+---------------------------------------------------
+ul li:last-child
+--------------------------------------------------
+
+Un elemento en especifico
+---------------------------------------------------
+ul li:nth-child(2)
+---------------------------------------------------
+
+Selecciona el segundo elemento
+-------------------------------------
+ul li:nth-child(2n+1)
+
+20 +1= 1 21 +1= 3 2*2 +1= 5
+Así obtengo los impares
+---------------------------------------
+
+Todos menos.. (la excepcion)
+-----------------------------------------
+p:not(.texto)
+p:not(.texto):not(.oferta)
+---------------------------------------
+
+Primera letra de un párrafo
+------------------------------------------
+.clase::first-letter{ font-size: 20rem } 
+-------------------------------------------
+
+Primera linea 
+----------------------------------------------
+.primera-linea::first-line{ font-size: 20rem }
+-----------------------------------------------

@@ -1,0 +1,139 @@
+# Git 1r_MóDULO
+
+# Primeros Comandos
+
+- Primer comando
+    
+        > git help
+
+Para info de un comando específico
+
+        > git --help comando
+
+- De gran ayuda ;)
+
+- Para listar info de usuario, también se puede modificar
+
+        > git config --global -e
+
+- Esc :wq! para salir
+
+- Para inicializar el repositorio y crearlo en el espacio local
+
+        > git init
+
+- Se crea .git, una carpeta oculta que no debe tocarse
+
+- Para visualizar dónde estoy y que archivos sigue o no sigue Git 
+
+        > git status
+
+- Para agregar individualmente
+
+        > git add nombre_del_archivo
+
+- Para agregarlos todos
+
+        > git add .
+
+- Para remover algun archivo
+
+        > git reset Archivo_a_borrar
+
+- Ahora están listos en el stage para hacer el commit.
+- Con -m  agrego el mensaje de info que acompaña a la snapshot
+
+        > git commit -m "mi primer commit"
+
+- Para ver los commits
+
+        > git log
+- Para volver al estado de mi último commit de mi proyecto
+
+        > git checkout -- .
+-----------
+MUY ÚTIL
+-----------
+-----------
+
+- Para saber en que rama estoy trabajando
+
+        > git branch
+
+Es buena práctica que el master sólo tenga lo que va a producción, la versión final, o cambios revisados
+- Es recomendable trabajar en ramas.
+- Para renombrar el master a main
+
+        > git branch -m master main
+
+- Para que lo haga por defecto
+
+        > git config --global init.defaultBranch main
+
+- Para saltarse los pasos de actualizar con add puedo usar -a de all y -m de mensaje
+
+        > git commit -am "Todo agregado"
+
+    > Sólo funciona con archivos que ya están en seguimiento
+
+- Para coger todos los archivo html puedo usar un comodin
+
+        > git add *.html
+
+- Tengo que estar en el mismo directorio
+
+        > git add src/js/*.js
+
+- Si la carpeta no contiene nada git no lo reconoce en el sistema
+
+> Puedo ponerle el archivo .gitkeep dentro para que lo haga, pesa 0Bytes
+
+        > git add src/.gitkeep
+        > git commit -m "carpeta añadida"
+
+# Diferentes formas de añadir al stage
+
+- Para añadir todo un directorio al stage
+        
+        > git add css/
+
+- Para añadir todos los archivos
+
+        > git add .
+    
+> Hay una manera gráfica de añadir, hacer cambios y más cosas en vscode, dándole al icono de Git de la esquina inferior izquierda. Bonus 
+
+# Alias
+
+Si quiero un resumen de la info
+
+        > git status --short
+
+- Pero es mucho código para escribir. Yo puedo crear mis propios alias
+
+        > git config --global alias.s status 
+        > git s
+
+- Para entrar en modo edicion del global
+
+        > git config --global -e
+
+- Tecla a para modificar---> añado a s = status --short
+- Esc :wq! para salir
+
+> Para hacerlo directamente lo debo entrecomillar:
+    > git config --global alias.s "status --short"
+
+- Para leer la forma corta del hash y un formato más amigable
+
+        > git log --oneline
+
+- Puedo crearme los alias que quiera concatenando los parámetros        
+        > git config --global alias.lg "log --oneline --decorate --all --graph"
+
+
+
+
+
+
+

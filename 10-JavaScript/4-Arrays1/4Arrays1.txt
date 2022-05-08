@@ -1,0 +1,15 @@
+-----------------------------------------------------------------------------
+const tecnologias = [20, true, "JavaScript", -30, false,{"Objeto": "Array"}]
+----------------------------------------------------------------------------
+//Inician en posición 0
+//Si imprimo una posición que no existe marca undefined
+
+//marca cuantos elementos hay en el arreglo
+---------------------------------------------------------------------------
+console.log(tecnologias.length)  //Devuelve 6
+---------------------------------------------------------------------------
+
+//Devuelve en string el arreglo
+--------------------------------------------------------------------------
+const arregloAString= tecnologias.toString()
+--------------------------------------------------------------------------

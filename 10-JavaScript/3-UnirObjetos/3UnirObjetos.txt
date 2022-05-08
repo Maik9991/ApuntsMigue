@@ -1,0 +1,27 @@
+-------------------------------------------------------------
+const producto = {
+    nombre:"tablet",
+    precio: 300,
+    disponible: true
+}
+
+const cliente ={
+    nombre: "Juan",
+    premium: true
+}
+------------------------------------------------------------
+
+//Con el spread le digo toma una copia de estos dos objetos 
+----------------------------------------------------------
+const objeto = {...producto, ...cliente}
+------------------------------------------------------------
+
+//Aunque sobreescribe nombre por el último valor nombre (Juan), no muta el original
+
+//Para hacer la copia exacta dentro de un mismo objeto:
+------------------------------------------------------------------------------------
+const nuevoObjeto = {
+    producto:{...producto},
+    cliente: {...cliente}
+}
+------------------------------------------------------------------------------------

@@ -1,0 +1,42 @@
+# Manejador de eventos semánticos
+
+- Se recomienda separar contenidos tanto de CSS como de javascript del HTML
+- Por lo que la parte del script debería ir en un documento.js aparte
+----------------------------------------------------------------------------
+   <button id="presioname">Presioname</button>
+    <script>
+        
+		function mostrarMensaje () {
+            	alert("Este es un mensaje de alerta")
+        }
+        
+	document.getElementById("presioname").onclick = mostrarMensaje;
+
+    </script>
+----------------------------------------------------------------------------
+
+- Una manera de ejecutar código una vez la página ha sido cargada es con onload
+
+----------------------------------------------------------------------------
+function mostrarMensaje () {
+            alert("Este es un mensaje de alerta")
+        }
+        
+        window.onload = function (){
+            document.getElementById("presioname").onclick = mostrarMensaje;
+
+        }
+------------------------------------------------------------------------------
+
+
+-----------------------------------------------------------------------------
+const section = document.getElementById('sektion') //elijo el selector
+
+function salir(){                                  //declaro la función a ejecutar
+    alert("has entrado")
+}
+
+window.onload = function mostrar(){                //uso el onload para ejecutarla en el mouseover
+    section.onmouseover = salir;
+}
+----------------------------------------------------------------

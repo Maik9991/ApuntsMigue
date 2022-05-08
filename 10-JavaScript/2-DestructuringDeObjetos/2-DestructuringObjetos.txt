@@ -1,0 +1,16 @@
+-----------------------------------------------------------
+const producto = {
+    nombre:"tablet",
+    precio: 300,
+    disponible: true
+}
+
+const cliente ={
+    nombre: "Juan",
+    premium: true
+}
+
+const {nombre, precio, disponible} = producto
+const {nombre: nombreCliente, premium} = cliente 
+-----------------------------------------------------------
+//Puedo renombrar con un alias para que no de error nombre-nombre

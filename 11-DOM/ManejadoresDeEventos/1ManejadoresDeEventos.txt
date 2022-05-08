@@ -1,0 +1,49 @@
+- Para que los eventos sean útiles deben asociarse a funciones
+
+Hay 3 tipos:
+
+*****************************************
+
+- Manejadores como atributos de los HTML
+- Manejadores como funciones JavaScript externas
+- Manejadores semánticos
+
+******************************************
+
+- Esta es la manera menos profesional. Cómo atributos
+
+--------------------------------------------------------------
+<button onClick="alert('Me has presionado')"> Púlsame </button>
+--------------------------------------------------------------
+
+- Otro evento sería mouseover, que se activará cuando ponga encima el ratón
+- mouseout es cuando salga el ratón
+
+------------------------------------------------------------
+<h1 mouseover="alert('has puesto el mouse encima')"> Titulo </h1>
+------------------------------------------------------------
+
+- Otro evento sería el onload, que puedo meter en la etiqueta body, para cuando haya cargado toda la página
+
+- onfocus se usa con button, input, label y select y es cuando se presiona sobre él
+- onblur es cuando se pierde
+- De esta manera imprimirá en el input "tengo el foco!" cuando presione sobre él y "Ya no!" cuando salga 
+
+-------------------------------------------------------------------------------------------
+<input type="text" value="" onfocus= "value = 'tengo el foco!'" onblur=" value = 'Ya no!'" >
+------------------------------------------------------------------------------------------
+
+- Para añadirle un color en el background cuando el foco sería
+
+------------------------------------------------------------------------
+ <input type="text" value="" onfocus="style.backgroundColor='yellow'" >
+-------------------------------------------------------------------------
+
+- Puedo usar el this para hacer referencia al elemento en si, pero no es necesario aquí
+- Si hay casos en que es necesario, como pasar un valor 
+
+------------------------------------------------------------------------
+<input type="text" onblur="this.style.backgroundColor='red'" >
+------------------------------------------------------------------------
+
+

@@ -1,0 +1,9 @@
+--------------------------------------------------------------------
+const tecnologias = ['HTML', 'CSS', 'JavaScript', 'React', 'NodeJS']
+--------------------------------------------------------------------
+
+//En los arreglos la desestructuración se hace por posición
+----------------------------------------------------
+const [html, , , react] = tecnologias;
+console.log(html, react)
+---------------------------------------------------

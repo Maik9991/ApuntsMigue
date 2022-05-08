@@ -1,0 +1,50 @@
+const tecnologias = ['HTML', 'CSS', 'JavaScript', 'React', 'NodeJS']
+const numeros = [10,20,30]
+
+
+//NINGUNO DE ESTOS METODOS MUTA EL ARREGLO ORIGINAL
+
+//Se puede consultar does it mutate? para ver que métodos mutan el arreglo original
+
+
+//Para ver si incluye alguno de los parámetros
+------------------------------------------------
+const javaScript =tecnologias.includes('JavaScript')
+
+console.log(javaScript) //true
+--------------------------------------------------
+
+//.some devuielve si almenos uno cumple la condición
+--------------------------------------------------------
+const resultado = numeros.some(numero=> numero > 15) //true
+----------------------------------------------------------
+
+//.find() devuelve el primer elemento que cumpla la condición
+--------------------------------------------------------------
+const resultado2 = numeros.find(numero=> numero > 15)  //20
+-------------------------------------------------------------
+
+//.every retorna true o false si todos cumplen la condición
+-----------------------------------------------------------
+const resultado3 = numeros.every(num => num > 9)  //true
+-----------------------------------------------------------
+
+//.reduce() está diseñado para cantidades. total es el acumulado. 100 el numero que inicia
+------------------------------------------------------------------------------
+const resultado4 = numeros.reduce((total, numero)=>numero+total, 100) //160
+-------------------------------------------------------------------------------
+
+//.filter() crea un nuevo array en base a una condición
+------------------------------------------------------------------------------
+const resultado5 = tecnologias.filter( tech => tech !== 'HTML')
+--------------------------------------------------------------------------------
+
+//.forEach() sirve apar iterar unicamente
+-------------------------------------------------------------------------------
+tecnologias.forEach((tech, index)=> console.log(index))
+------------------------------------------------------------------------------
+
+//Para crear un nuevo array puedo usar .map
+----------------------------------------------------------------------------
+const arrayMap = tecnologias.map(tech => tech )
+-----------------------------------------------------------------------------

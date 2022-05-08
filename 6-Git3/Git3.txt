@@ -1,0 +1,79 @@
+# GIT 3erMODULO
+## RAMAS, UNIONES y CONFLICTOS
+
+- Las ramas son lineas de tiempo de commits. Desviaciones de la rama principal o main
+- Se pueden volver a unir a la rama principal a través del merge
+        - fast froward--> se une de manera cristalina si no han habido cambios en la rama principal y sería como si nunca se hubieran separado. Se puede desactivar
+        - uniones automáticas---> Git detecta cambios pero sin conflictos
+        - unión manual---> git no puede resolverlo de manera automática hay uqe hacerlo de manera manual.
+--------
+# Fast-Forward
+
+- Para crear una rama
+        
+        > git branch nombre_rama
+
+Para visualizar en consola las ramas
+        
+        > git branch 
+
+Pero sigo en la rama master. Para moverme a la rama 
+
+        > git checkout nombre_rama
+
+Un git log para ver que ambas ramas están en el mismo sitio, el último commit de ambos
+
+Ahora si hago un commit el HEAD apunta a nombre_rama
+
+> Debo asegurarme de estar en la rama master si lo que quiero es traerme los cambios de la rama
+
+- Para volver a la rama master
+
+        > git checkout master
+
+- Para unir la rama
+
+        > git merge nombre_rama
+
+- Si pone Fast-forward es que no hay ningún conflicto, y ha detectado todos los cambios
+- Ahora ya no necesito la rama. Para borrar es con -d de delete seguido de la rama
+
+        > git branch -d nombre_rama -f
+
+- puedo añadir -f de force
+
+- Para crear la rama y moverme automáticamente a esta, -b de branch
+
+        > git checkout -b nombre_nueva_rama
+
+---
+# Uniones con Conflictos
+- Un conflicto es ese código que git no puede unir automáticamente
+- El editor muestra el conflicto y se ha de editar manualmente
+------
+
+# Tags
+
+- Son referencias a un commit específico. Sirven para ir a ese punto en concreto
+- Suelen usarse para marcar versiones
+
+- Para crear un tag en el último commit
+        
+        > git tag -a v1.0.0_version -m "Mensaje de la version 1.0.0"
+
+- Para ver los tag
+
+         > git tag
+
+-Para borrar 
+
+         >git tag -d nombre_tag
+
+- Para seleccionar otro commit para el tag
+
+        > git tag -a v0.1.0.0 hash_del_commit -m "Mensaje del tag al commit"
+
+
+
+
+

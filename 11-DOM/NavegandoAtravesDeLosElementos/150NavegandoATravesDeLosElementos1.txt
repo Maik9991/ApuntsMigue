@@ -1,0 +1,53 @@
+******************************************************************************
+ELEMENTOS HIJXS
+******************************************************************************
+
+
+- NODOS: Todo lo que se agrega a un HTML es un nodo. Cada p, </br>, texto suelto, h1 es un nodo
+
+- Javascript solo denomina elementos a las etiquetas
+
+- Selecciono un párrafo que tiene varios hijos, un a y un em
+
+-------------------------------------------------------------------
+const p = document.querySelector('p')
+------------------------------------------------------------------
+
+- childNodes devuelve un NodeList con los nodos que contiene el nodo
+
+--------------------------------------------------
+console.log(p.childNodes)
+--------------------------------------------------
+
+- .children devuelve un array de tipo HTML collection, solo las etiquetas. Al ser un array puedo usar corchetes
+- innerHTML me va a devolver todo el elemento como un string, textContent solo el texto, ignora las etiquetas
+- outerHTML devuelve el texto teniendo en cuentas las etiquetas
+
+---------------------------------------
+console.log(p.children[0].innerHTML)
+--------------------------------------
+
+- Puedo concatenar children
+
+--------------------------
+console.log(p.children[0].children)
+-------------------------
+
+- Hay que tener en cuenta los saltos de linea y todo lo que haya
+- También hay la la versión firstElementChild y lastElementChild
+
+*************************************
+first-child: me devuelve el primer hij
+last-child: el último
+*************************************
+
+- hasChildNodes devuelve si tiene hijos o no. Es un boolean
+- childElementCount y .length se suelen usar para validaciones con cierta lógica
+
+-------------------------
+if(p.children.length > 0){
+	console.log("Hay contenido")
+}
+-------------------------
+
+La cantidad de nodos se puede saber con p.childNodes.length

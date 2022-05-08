@@ -1,0 +1,22 @@
+- La info del ratón son las coordenadas del ratón
+- El origen de las coordenadas se toma de la esquina superior izquierda. No siempre coinciden 
+las coordenadas de la ventana
+ con las de la página, pues el usuario podría hacer scroll.
+- Puedo extraerlas y hacer que me muestre en qué coordenadas he dado un click de esta forma
+
+-----------------------------------------------------------------------------
+const section = document.getElementById("sektion")
+
+function muestraInfo(e){
+    let coordX = e.clientX
+    let coordY = e.clientY
+    
+    console.log(coordX, coordY)
+}
+
+
+
+document.onclick = muestraInfo;
+------------------------------------------------------------------------------
+
+

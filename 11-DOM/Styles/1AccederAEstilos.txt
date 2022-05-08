@@ -1,0 +1,98 @@
+- Solo puedo acceder mediante id si los valores CSS agregados son del lado de javascript
+
+------------------------------
+parrafo.style.fontSize = '40px'
+------------------------------
+
+- De esta manera si puedo acceder mediante parrafo.style.fontSize con un console.log
+
+- Cuando los valores son añadidos desde HTML con CSS como esto
+--------------------------------------------------------------
+ <style>
+        #miparrafo {
+            font-size: 40px;
+            color: red
+        }
+    </style>
+--------------------------------------------------------------
+
+- Para acceder debo usar  primero getElementById y luego getComputedStyle
+- getComputedStyle pertenece al objeto window, por eso se puede usar sin window. primero
+
+------------------------------------------------------------------
+const parrafo = document.getElementById('miparrafo')
+
+const pEstilos = getComputedStyle(parrafo)
+----------------------------------------------------------
+
+- Para acceder a la propiedad uso
+
+---------------------------------------------------------
+console.log(pEstilos.getPropertyValue('font-size')    //40px
+--------------------------------------------------------
+
+- Tambien puedo acceder usando directamente el valor de la propiedad
+
+------------------------------------------------------------------
+console.log(pEstilos.fontSize)
+--------------------------------------------------------------
+
+- Algo más elegante es crear una función para realizar esto
+- Si es de tipo string, haz un querySelector y ahora lo guardas en selector
+- Si es de tipo null, retorna false. Esto puede ser útil para validaciones
+
+--------------------------------------------------------------
+ function getStyles( selector ){
+            
+            if(typeof selector === 'string'){
+               selector = document.querySelector(selector)
+
+            }
+            if(selector === null){
+                return false
+            }
+            
+            return getComputedStyle( selector )
+        }
+----------------------------------------------------------
+
+nodeType:
+
+- Hay diferentes tipos de elemento nodo (hasta 12, consultar documentación Mozzilla)
+
+----------------------------------
+console.log(parrafo.nodeType)
+-------------------------------------
+
+- Sofisticando más la función con un ternario de validación
+
+----------------------------------------
+function getStyles( selector ){
+            
+            if(typeof selector === 'string'){
+               selector = document.querySelector(selector)
+
+            }
+            if(selector === null){
+                return false
+            }
+            
+            return selector.nodeType ===1 ? getComputedStyle( selector ) : false
+--------------------------------------------------
+
+- Ahora puedo extraer lo estilos de un selector
+
+-----------------------------------------------
+let pStyles = getStyles('#miparrafo');
+
+console.log(pStyles.fontSize)
+---------------------------------------------------
+
+- Si pongo un selector erróneo, cómo #mparrrafo me devolverá false. Yo puedo usar eso para mostrar un mensaje de error
+- Si no , muestra el fontSize 
+-------------------------------------------------
+
+if( !pStyles ){
+	console.log("No se encontró el elemento")	
+	}else{
+		console.log(pStyles.fontSize)}

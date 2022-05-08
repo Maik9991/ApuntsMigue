@@ -1,0 +1,103 @@
+# Git MÓDULO2
+
+## Cambios en los Archivos
+
+- Para ver la diferencia entre la versión anterior y la actual
+
+        >git diff
+
+- Si quiero compararlo con el que está en el stage
+
+        > git diff --stage
+
+# Actualizar mensaje del commit  revertir commits
+
+- Para corregir un mensaje mal escrito, uso amend como de enmendar
+
+        > git commit --amend -m "instalaciones actualizadas"
+
+- Para hacer un cambio, por ejemplo quiero que los cambios pertenezcan al commit anterior
+- Uso reset soft (hay medium y hard), que no borra los cambios
+
+        > git reset --soft HEAD^
+- Ahora puedo sobreescribir el commit con git commit
+- El HEAD apunta al último commit, el techito significa el último commit antes de este HEAD
+- El techito puede ser sustituido por el hash del comitt
+- Tambien puedo sustituirlo con escribir números para moverme tantos commits atrás como n
+
+        > git reset --soft HEAD3
+
+# Viajes en el tiempo, resets y reflogs
+
+Puedo usar ese mismo comando con el HASH del commit anterior al que quiero modificar
+
+> --soft para que no sea destructivo
+
+        > git reset --soft 238728732319381293213
+
+Realizo los cambios, subo el commit
+        
+        > git commit -am "mensaje"
+
+- Ahora ya tengo los cambios
+- Podría usar el mixed también (que es por defecto), similar al soft, con el hash del punto dónde quiero moverme
+
+        > git reset --mixed 827391873128373
+
+-Ahora la carpeta en cuestión aparece como Untrack (sin seguimiento)
+        -Pero las otras carpetas si siguen como estaban
+-Si quieres borrar todos los cambios de todas las carpetas usa reset --hard
+
+        > git reset --hard 89749384739847
+
+- Para recuperar todo lo borrado
+
+        > git reflog
+
+- Esto devuelve todos los hash de los resets, commits, etc
+- Agrego el hash al reset
+
+        > git reset --hard 8273289372837hash del punto donde quiero volver
+
+>Esta no es una práctica común. Lo habitual es crear ramas, e ir por ahi mientras se desarrolla hasta que se vuelva a unir con el main en producción
+
+- Se busca que el main solo tenga los commits definitivos
+
+
+# Cambiar el nombre y eliminar archivos 
+
+- Para cambiar el nombre o moverlo, es igual que en linux
+
+        > git mv archivo_a_cambiar.md nombre_nuevo.md
+
+- Si hago un git status puedo ver que ya está en el stage, puedo hacer el commit
+
+- Para borrar se puede hacer con git
+
+        > git rm nombre_del_archivo_a_eliminar
+
+- Git status, y todavía esta en el stage
+
+        > git commit -m "elimino el archivo"
+
+- No suele ser así eliminar archivos o renombrar, se hace directamente en el editor
+- Luego un git add.
+- Git detecta los cambios y añade una R de Rename.
+
+>La manera anterior es más segura
+
+# Ignorando archivos
+
+Creo el archivo .gitignore en la raiz, donde este .git y ahi se especifica los archivos que no quiero seguir
+Se pueden incluir comodines
+~~~js
+dist/
+node_modules/
+*.log
+~~~
+
+
+
+
+
+

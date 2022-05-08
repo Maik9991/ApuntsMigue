@@ -1,0 +1,51 @@
+---------------------------------------------------------------------
+const tecnologias = ['HTML', 'CSS', 'JavaScript', 'React', 'NodeJS']
+---------------------------------------------------------------------
+
+//NINGUNO DE ESTOS DOS MÉTODOS SE USAN EN REACT,MODIFICAN EL ORIGINAL
+--------------------------------------------------------------------
+tecnologias.push('GraphQL') //Añade al final
+
+tecnologias.unshift('SQL') //Añade al principio
+--------------------------------------------------------------------
+
+
+//ESTOS SI
+----------------------------------------------------------------------
+const nuevoArreglo = [...tecnologias, 'MongoDB'] //Lo añade al final
+const nuevoArreglo2 = ["ThreeJS",...tecnologias] //Lo añade al final
+---------------------------------------------------------------------
+
+//NINGUNO DE ESTOS TRES MÉTODOS SE USAN EN REACT,MODIFICAN EL ORIGINAL
+--------------------------------------------------------------------------
+tecnologias.pop(); //Elimina del final
+tecnologias.shift(); //Elimina del principio
+tecnologias.splice(2,1) //Args: a partir de qué elemento, cuántos quiero eliminar
+---------------------------------------------------------------------------
+
+
+//FILTER RETORNA UN ARREGLO NUEVO
+---------------------------------------------------------------------------
+const nuevoArray = tecnologias.filter((tech)=>console.log(tech))
+---------------------------------------------------------------------------
+
+//Para traerlos a todos menos a uno con el return implicito entre paréntesis
+-------------------------------------------------------------------------------
+const nuevoArray2 = tecnologias.filter((tech)=>(tech !== 'HTML')) 
+
+console.log(nuevoArray2)
+------------------------------------------------------------------------------
+
+//PARA SUSTITUIR SIN CAMBIAR EL ORIGINAL
+------------------------------------------------------------------------------
+const nuevoArray3 = tecnologias.map((tech)=>{
+    if(tech === 'HTML'){
+        return 'GraphQL'
+    }else{
+        return tech
+    }
+})
+
+console.log(nuevoArray3) 
+-----------------------------------------------------------------------------------
+//Esto devuelve un nuevo array con GraphQL en lugar de HTML y el resto de elementos 

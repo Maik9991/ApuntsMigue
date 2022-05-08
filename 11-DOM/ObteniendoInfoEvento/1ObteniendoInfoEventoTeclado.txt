@@ -1,0 +1,72 @@
+
+- Para obtener info del evento, explorer considera que event pertenece al objeto window.
+- El restod e navegadores no. Por esto puedo usar un condicional OR para almacenar el evento
+
+----------------------------------------
+funciton manejadorEventos(e){
+	
+	let event= e || windows.event
+
+}
+--------------------------------------
+
+_ Puedo extraer la info que necesite de esta manera
+
+---------------------------------------------------
+let tipo = event.type
+--------------------------------------------------
+
+- Devuelven el evento sin el prefijo on. Onchange === change, onclick === click
+
+- Otro caso para usar un switch
+
+---------------------
+
+function resalta(e){
+    let evento = e || window.event;
+    let type = evento.type
+    
+    switch (type){
+        case 'mouseover':
+            this.style.borderColor = "white"
+            this.style.backgroundColor = "black"
+            break;
+            case 'mouseout':
+                this.style.borderColor = "black"
+                this.style.backgroundColor = "white"
+                break;
+            }    
+        }
+        
+const section = document.getElementById('sektion')
+
+window.onload = function(){
+    section.onmouseover = resalta
+    section.onmouseout = resalta
+}
+--------------------------------------------------
+- Eventos del teclado: existen muchas diferencias entre navegadores y modelos de teclado. Son los eventos más dificiles
+- Hay tres tipos
+
+*************************************************
+- onKeyDown --> pulsar y no soltar. Devuelven el código interno de cada tecla keyCode. CharCode no definido
+- onKeyPress --> la pulsación de la tecla. Devuelve el caracter de la tecla
+- onKeyUp --> soltar la tecla. Devuelven el código interno de cada tecla keyCode. CharCode no definido 
+*************************************************
+
+- Existen diferencias entre Enter, alt y shift, por ejemplo
+
+- Para obtener la tecla presionada
+
+-------------------------------------
+e.charCode
+------------------------------------
+
+Para mostrar le tecla en string
+
+-------------------------------------
+String.fromCharCode(e.charCode)
+------------------------------------
+
+altKey, ctrlKey y shiftKey devuelven un valor booleano. Si estan pulsadas devuelve true
+

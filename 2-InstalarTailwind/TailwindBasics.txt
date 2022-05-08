@@ -1,0 +1,60 @@
+# Instalando Tailwind
+
+    > npm i autoprefixer postcss tailwindcss
+    > npx tailwindcss init -p
+
+- En tailwind.config.js le digo que el archivo purge: [ "index.html", ./src/**/*.jsx ]
+- Uso los comodines para buscar todos los archivos acabados en jsx
+- En index.css importo
+
+ ----------------------------------------------------------------------------------   
+    - @tailwind base;
+    - @tailwind components;
+    - @tailwind utilities; 
+-----------------------------------------------------------------------------------
+
+- Para importar una fuente
+
+--------------------------------------
+	@layer base {
+   
+   @font-face{
+        font-family: "TrebuchetMS";
+        src: url('fonts/TrebuchetMS.ttf');
+        font-weight: normal;
+        font-style: normal
+    }
+   
+    .trebuchet{
+        font-family: 'TrebuchetMS'
+    }
+}
+---------------------------------------
+
+- Ahora dispongo de la clase trebuchet
+
+- Para crear mis componentes uso
+
+------------------------------------- 
+	@layer components{ 
+		.clase{@apply mt-5 text-white}
+	}
+--------------------------------------------
+
+- Para añadir una variable de color a usar junto a cualquier variable que admita colores
+- uso el archivo de configuración, lo añado en el extends
+
+------------------------------------------------
+module.exports = {
+  content: ["index.html", "./src/**/*.jsx"],
+  theme: {
+    extend: {
+        colors:{
+            "azul-claro": "#37BCF9",
+            "azul-oscuro": "#0370B9"
+        }
+    },
+  },
+  plugins: [],
+}
+-------------------------------------

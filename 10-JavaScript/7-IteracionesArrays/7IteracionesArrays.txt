@@ -1,0 +1,25 @@
+const tecnologias = ['HTML', 'CSS', 'JavaScript', 'React', 'NodeJS']
+
+//forEach se va a ejecutar por cada elemento que haya en el arreglo pero no crea un nuevo arreglo
+---------------------------------------------------------
+const arrayForEach = tecnologias.forEach(tech=>{
+    return tech
+})
+---------------------------------------------------------
+
+//ESTO DA UNDEFINED 
+---------------------------------------------------------
+console.log(arrayForEach)
+---------------------------------------------------------
+
+//El .map crea un nuevo arreglo
+-----------------------------------------------------------
+const arrayMap = tecnologias.map((tech)=>{
+    return tech
+} )
+---------------------------------------------------------
+
+//ESTO DEVUELVE UN ARREGLO
+----------------------------------------------------------
+console.log(arrayMap)
+---------------------------------------------------------
