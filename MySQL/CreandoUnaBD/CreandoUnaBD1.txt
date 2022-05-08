@@ -1,0 +1,75 @@
+
+- Voy al icono de Modelos, en la esquina superior izquierda, un icono de diagramas
+
+- Clic al + y luego doble clic a agregar diagramas
+- En la parte media del lado derecho, donde dice catalog tree, doble click en mydb para cambiarle el nombre
+
+- En el diagrama del centro, a la izquierda, estan las herramientas
+- Agrego nueva tabla y le doy clic a la cuadrilla para insertarla
+- Hago cuatro tablas en total
+- Doble clic a la tabla para cambiar nombre e ir agregando columnas
+    - pendientes
+    - personas
+    - usuarios
+    - status pendiente
+
+- Tabla usuarios:
+
+- Doble clic en column name para ingresar la primera columna
+- Por defecto la primera se pone el id. Le añado AI (autoincrementable)
+- siguiente campo: nombre. Tipo de dato: VARCHAR(45) . 
+- Le marco NN (not null) para que no acepte campos vacíos
+- Siguiente campo: password VARCHAR NN 
+- Siguiente campo: idPersona INT NN 
+
+- Tabla pendientes:
+- id INT PK NN AI
+- fechaCreacion  DateTime NN
+- fechaEntrega DateTime NN
+- descripción  VARCHAR(250) NN
+- idStatusPendiente INT NN
+- Observaciones VARCHAR(250)
+- idPersonaAsignada INT NN
+- soluciónPendiente VARCHAR(250)
+
+- Tabla personas:
+- id   INT PK NN AI
+- nombre VARCHAR(30)
+- correo VARCHAR(30)
+- telefono VARCHAR(30)
+
+- estatusPendiente:
+- id INT PK  NN AI
+- estatusPendiente INT NN
+
+*******************************************************************
+
+- Para relacionar dos tablas, deben tener un registro de campo igual
+- en este caso, el id
+
+- En el caso de la relación personas-usuarios será de uno a muchos,
+ ya que una persona puede tener varios usuarios
+- Clic doble en la tabla usuarios, en la parte de abajo hay una sección llamada foreignKeys
+- Clic ahi para poner nombre a la relación: fkUsuariosPersonas
+- Siguiente paso: seleccionar la tabla con la que voy a tener relación: personas
+- Selecciono la clave idPersonas, id
+
+- Siguiente: un status puede estar muchas veces en la tabla de pendientes
+- Relación: muchos a muchos
+- Pendientes, foreignKeys, nombre: fkPendientesEstatusPendiente
+- Relación con bdPendientes, idEstatusPendiente -id
+
+- Siguiente: Personas puede estar varias veces en pendientes
+- En dos campos: idPersona idPersonaAsignada
+- Pendientes -ForeignKey: fkPendientesPersonas1: le pongo un 1 porque hay otra relación
+- Lo asocio a idPersona id
+
+- Siguiente relacion de pendientes: foreignKey: fkPendientesPersonas2 
+- relacionado con personas, a idPersonaAsignada
+
+********************************************************************************
+
+## Una vez hecho el diagrama es sencillo generar la base de datos
+Voy al diagrama, en DataBase--> Forward Engineer
+
+NOTA IMPORTANTE: NO DEJAR CAMPOS A MEDIAS, CAMPOS EN BLANCO CON ALGUN TIPO DE DATO 
