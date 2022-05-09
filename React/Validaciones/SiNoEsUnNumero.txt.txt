@@ -1,0 +1,76 @@
+- En el onsubmit del formulario pongo el handlePresupuesto
+- presupuesto es un state
+
+--------
+ const handlePresupuesto = (e) =>{
+        e.preventDefault();
+        
+	if( !presupuesto || Number(presupuesto) < 0){
+            setMensaje("No es un presupuesto válido")
+		return
+	
+        }else{
+            setMensaje('')
+        }
+    }
+----------------
+
+Valido si no hay o es un numero menor que cero.
+Coloco un return para cerrar el ciclo, asi ya no se ejecutan las siguientes líneas
+Puedo usar otro state llamado mensaje para setearlo cuando no pase la validación y mostrar una alerta 
+en forma de componente.
+
+
+-------------------------------------------------------------------
+{ mensaje && <Mensaje>}
+-----------------------------------------------------------------
+
+Puedo crear un Mensaje mezclando una clase fija. Alerta (es una clase predefinida en CSS) y tipo (error) también
+
+-------------------------------------------------------------------
+import React from 'react'
+
+const Mensaje = ({children, tipo}) => {
+  
+return (
+    <div className={`alerta ${tipo}`}> {children} </div>
+  )
+}
+
+export default Mensaje
+
+---------------------------------------------------------------------
+
+- children es el cuerpo del mensaje, que he seteado previamente en hendlePresupuesto
+- El tipo se lo paso por props
+
+-------------------------------------------------------------------
+{mensaje && <Mensaje tipo="error"> {mensaje} </Mensaje> }
+------------------------------------------------------------------
+
+- Para borrar el cartel de alerta, añado setMensaje('') vacío fuera del scope del return de handlePresupuesto
+-En caso de que sea válido (el else de la condición if) iré a otra página.
+- Para eso creo un nuevo state llamado isValidPresupuesto que inicia en false y colocarlo a true 
+
+----------------------
+const handlePresupuesto = (e) =>{
+        e.preventDefault();
+        
+	if( !presupuesto || Number(presupuesto) < 0){
+            setMensaje("No es un presupuesto válido")
+		return
+	
+        }else{
+            setMensaje('')
+		setIsValidPresupuesto(true)
+        }
+    }
+------------------------------------------------------
+
+En el padre le digo
+
+--------------------------------------------------------
+{isValidPresupuesto ? (<NuevoComponente />) : <PrimerComponente />}
+
+
+

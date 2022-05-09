@@ -1,0 +1,21 @@
+Hay que manejarlo con una función en el onClick y un state que inice en false
+
+-------------------------------------------------------
+<button onClick={handleModal}>Button</button>
+-------------------------------------------------------
+
+const [modal, setModal] = useState(false)
+
+const handleModal = () =>{
+	setModal(true)	
+ }
+------------------------------------------------------
+
+Para cerrarlo Le paso por props setModal a <Modal> y en una nueva función llamada cerrarModal puesta en el onClick 
+le paso setModal(false)
+
+-----------------------------------------------------
+
+const cerrarModal = () =>{
+	setModal(false)
+ }

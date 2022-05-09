@@ -1,0 +1,5 @@
+Se manejan en base a un state, usa template strings
+
+---------------------------------------------------
+<form className= {`formulario ${state ? "clase": null}`}
+-----------------------------------------------------

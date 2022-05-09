@@ -1,0 +1,22 @@
+Javascript tiene una API para formatear a dinero
+
+----------------------------------------------
+cantidad.toLocaleString('en-US',{
+	style:'currency',
+	currency: 'USD'
+
+})
+------------------------------------
+
+Lo puedes meter en una función
+
+--------------------------------------
+const formatearCantidad = (cantidad) =>{
+  return  cantidad.toLocaleString('en-US',{
+	
+	style:'currency',
+	currency:'US'
+})
+----------------------------------------
+
+EL RETURN ES IMPORTANTE ; )

@@ -1,0 +1,4 @@
+Estos métodos solo se pueden usar en nodos de tipo element (etiquetas)
+
+*******************************
+Element.getAttribute( attributeName )
