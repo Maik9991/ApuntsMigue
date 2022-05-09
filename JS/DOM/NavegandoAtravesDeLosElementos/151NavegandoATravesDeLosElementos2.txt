@@ -1,0 +1,45 @@
+
+Devuelve el nodo padre del nodo o elemento seleccionado
+Puedo ponerlo en un console.log para averiguarlo
+
+------------------------------------------------
+console.log(parrafo.parentNode) 
+------------------------------------------------
+
+- Puedo concatenarlo
+
+---------------------------------------------
+console.log(parrafo.parentNode.parentNode)
+---------------------------------------------
+
+- Devuelve null si pasa de html
+
+- Puedo concatenarlo con otros
+
+- Dee sta manera accedo a un nivel superior para luego acceder al segundo elemento que contiene
+
+---------------------------------------------
+console.log(parrafo.parentNode.parentNode.children[1])
+------------------------------------------------
+
+Devuelve el nodo anterior al nodo seleccionado
+---------------------------------------------
+Element.previousSibling
+----------------------------------------------
+
+RECUERDA: un salto de linea en el html equivale a un nodo
+
+Para obtener el siguiente hermano
+-----------------------------------------------
+Element.nextSibling
+----------------------------------------------
+
+Tambien se pueden concatenar
+
+Tengo la version Element de estos tres que solo se enfoca en las etiquetas
+
+*****************************
+Element.parentElement
+Element.previousElementSibling
+Element.nextElementSibling
+*****************************

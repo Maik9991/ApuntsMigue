@@ -1,0 +1,38 @@
+********************
+Node.removeChild(node)
+*********************
+Elimina un nodo hijo del elemento seleccionado y lo retorna
+
+---------------------------------------------
+ document.body.removeChild(li)
+ --------------------------------------------
+
+Para reemplazar
+
+**********************************
+Element.replaceChild(new, old)
+***********************************
+-------------------------------------
+document.body.replaceChild(p, li)
+----------------------------------
+
+- Estos métodos restantes unifican varios de los anteriores pero empleando la posición
+
+*************************************
+Element.insertAdjacentElement(position, element)
+Element.insertAdjacentHTML(position, text)
+Element.insertAdjacentText(position, text)
+**************************************
+
+- solo recibe una de estas 4 posibilidades como string de position:
+
+*****************************************************
+ 'beforebegin': se coloca antes del elemento seleccionado, como un hermano
+ 'afterbegin' : despues del elemento seleccionado, pero dentro cómo un hijo
+ 'beforeend': dentro, cómo hijo, antes del final
+ 'afterend': despues del elemento como hermano
+*******************************************************
+
+- Element inserta un elemento
+- Adjacent html le puedo pasar etiquetas como string y las procesa
+- AdjacentText no, lo interpreta todo como texto

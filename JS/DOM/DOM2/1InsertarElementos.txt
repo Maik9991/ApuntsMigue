@@ -1,0 +1,55 @@
+
+- Además de append() y prepend() están los metodos 
+
+***********************
+Element.before() y Element.after()
+***********************
+
+- Estos métodos también permiten agregar más de un argumento a la vez
+
+- Before no agrega el elemento dentro, sino que lo agrega antes de la etiqueta en cuestión, cómo un hermano
+- After lo hace después
+
+********************
+appendChild()
+********************
+- Solo permite un parámetro, lo agrega dentro 
+- Tiene que ser de tipo nodo o elemento, no una string, a no ser que le cree un texto con createTextNode
+
+------------------------------------------------
+padre.appendChild(document.createTextNode('Texto a insertar'))
+----------------------------------------------
+
+El insertBefore, le referencia es de uno de los hijos del elemento padre y lo insertará antes
+********************************************
+Element.insertBefore (NodoAAgregar,ReferenciaNodo)
+******************************************** 
+
+-----------------------------------------------
+padre.insertBefore(variableAInsertar, parrafoHijoPadre )
+-----------------------------------------------
+- Si en el segundo argumento le paso null, actúa como un append insertándolo al final 
+
+
+Puedo crear una función para agregar elementos
+
+----------------------------------------------------------
+function makeElement (tagName, content){
+    let element = document.createElement(tagName);
+    if (content) {
+        element.innerHTML = content
+    }
+    return element
+
+}
+---------------------------------------------------------
+
+- Ahora en una sola linea puedo crear elementos
+
+-------------------------------------------------------
+let li = makeElement('li', "texto a mostrar")
+
+document.body.append(li)
+-------------------------------------------------------
+
+Si el elemento que voy a insertar es un elemento seleccionado del DOM se va a mover
