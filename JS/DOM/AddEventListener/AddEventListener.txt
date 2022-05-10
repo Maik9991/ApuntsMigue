@@ -1,0 +1,55 @@
+- AddEventListener registra un evento a un objetivo en específico
+- El evento va sin el prefijo on
+
+---------------------------------------------------------------
+elemento_enEscucha.addEventListener("click", function, boolean)
+----------------------------------------------------------------
+-----------------------------------------------------------------
+const boton = document.getElementById('boton')
+
+function lanzador (){
+    alert("Me has presionado")
+}
+
+// Primero agrego el elemento sin el prefijo on, luego la función. El boolean es opcional
+
+boton.addEventListener("click", lanzador)
+----------------------------------------------------------------
+
+- También podría haber puesto una función anónima
+
+
+---------------------------------------------------------------------------
+boton.addEventListener("click", ()=> alert("Has presionado correctamente"))
+----------------------------------------------------------------------------
+
+El valor booleano es para dar prioridad a un elemento, ya que los eventos se registran de dentro a fuera
+- Un Section, que tiene un div, y este div un botón, si le doy clic ejecuta del boton hacia fuera: botón-div-section
+- Si lo cambio a true le dará prioridad a ese elemento y luego seguirá el flujo normal
+- seccion-boton-aside
+---------------------------------------------------------------
+function lanzador (){
+    function soySeccion(){
+        alert("Soy la seccion")
+    }
+    function soyAside(){
+        alert("Soy el Aside")
+    }
+    function soyBoton(){
+        alert("Soy boton")
+    }
+}
+
+boton.addEventListener('click', soyBoton, false)
+
+seccion.addEventListener('click', soySeccion, true)
+
+aside.addEventListener('click', soyAside, false)
+
+window.addEventListener('load', lanzador, false)
+------------------------------------------------------------
+
+- Para remover
+
+boton.removeAddEventListener("click", soyBoton , false)
+

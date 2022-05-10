@@ -1,0 +1,69 @@
+MATH
+
+- PROPIEDADES:
+
+*********************************************
+E, numero tal que su logaritmo neperiano es 1, n(e) = 1
+
+LN10, logaritmo neperiano del num 10   console.log(Math.LN10)
+
+LN2, logaritmo neperiano del 2
+
+PI, numero PI
+
+SQRT1_2 raiz cuadrada de 1/2
+
+SQRT2 raiz cuadrada de 2
+
+***************************************************
+
+- MÉTODOS:
+
+******************************************************
+abs(numero): calcula el número absoluto de uno
+
+acos(numero): cálcula el ángulo cuyo coseno es numero
+
+asin(numero): calcula el ángulo cuyo seno es numero
+
+atan(numero): calcula el numero cuyo tangente es numero
+
+ceil(numero): calcula el entero mayor o igual que numero
+
+cos(angulo): calcula el coseno de ángulo
+
+exp(numero): calcul,a el número elevado a lapotencia numero
+
+floor(numero): calcula el número entero o igual menor que el numero
+
+log(numero) calcula el logaritmo natural de numero
+
+max(numero1, numero2): calcula el máximo entre numero1 y numero2
+
+min(numero1, numero2): calcula el mínimo
+
+pow(n1, n2): calcula numero 1 exponiendo a numero2
+
+random(): calcula un número decimal aleatorio entre 0 y 1
+
+round(numero): devuelve el entero más cercano
+
+sin(angulo): calcula el seno de angulo
+
+sqrt(numero): calcula la raíz cuadrada de numero
+
+tan(angulo): calcula la tangente de ángulo
+
+
+
+
+
+
+
+
+
+
+
+
+
+

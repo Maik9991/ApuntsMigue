@@ -1,0 +1,26 @@
+- Location se refiere a la URL actual donde me encuentro
+
+- Se accede a través del window.location
+
+- Esta derivado de window pero se cataloga como objeto independiente
+
+***************************
+location.hash : se obtiene el valor despues del numeral
+
+location.host: retorna el nombre del host y el numero de puerto
+
+location.hostname: retorna el nombre de host de la url
+
+location.href: retorna la URL completa
+
+location.origin: retorna el protocolo, hostname y num de puerto
+
+location.pathname: retorna el nombre de la ruta
+
+location.port: retorna el puerto
+
+location.protocol: retorna el protocolo
+
+location.search: retorna la consulta de la url mediante el metodo GET agregando el signo de interrogación
+*************************
+

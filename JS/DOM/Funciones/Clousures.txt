@@ -1,0 +1,56 @@
+
+- Son funciones que están dentro de otras funciones
+- Para poder ejecutarlas hay que guardar la función padre en una variable
+- Operación ejecuta la creacion de una variable y el retorno de otra función que es almacenada en resultado
+- resultado se convierte en la función retornada por operación
+
+-------------------------------------------------------
+let operacion= function (){
+    var valor = 0;
+    return function (){
+        return valor += 5
+    }
+}
+
+let resultado = operacion(); 
+
+console.log(resultado())                //Retorna 5
+console.log(resultado())		//Retorna 10
+-----------------------------------------------------------
+
+
+Otro ejemplo:
+
+--------------------------------------------------------------
+
+function crearSumador(n){
+    return function(m){
+        return n+m
+    }
+}
+
+let suma10 = crearSumador(10)       //Aqui estoy guardando en memoria el valor de n =10 + la funcion interna(clousure)
+let suma20 = crearSumador(20)
+
+console.log(suma10(5))    		//Retorna 15
+---------------------------------------------------------------
+
+
+Para cerar una función que agrande el texto con un click
+
+-----------------------------------------------------------------
+function crearTamanos (pixeles){
+    return function(){
+        document.body.style.fontSize= pixeles+'px'
+    }
+}
+
+let tamano14= crearTamanos(14)
+    tamano26= crearTamanos(26)
+    tamano38 = crearTamanos(38)
+
+document.getElementById("tamano14").onclick = tamano14;
+document.getElementById("tamano26").onclick = tamano26
+document.getElementById("tamano38").onclick = tamano38
+------------------------------------------------------------------
+

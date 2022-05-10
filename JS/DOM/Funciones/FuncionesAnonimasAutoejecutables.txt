@@ -1,0 +1,10 @@
+
+- Se envuelven entre parentesis para luego ser invocadas
+
+--------------------------------------------------------
+(function () {
+    alert("Hola!!")
+})()
+--------------------------------------------------------
+
+- Se suelen usar para evitar colisiones de variables o funciones a sobreescribir

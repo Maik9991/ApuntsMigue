@@ -1,0 +1,66 @@
+Para trabajar con fechas en Javascript
+
+-----------------------------
+let fecha = new Date()
+
+let fecha2 = new Date( año, mes, día, hora, minutos, segundos )
+
+let fecha3 = new Date(año, mes , dia)
+------------------------------
+
+Métodos:
+
+******************************
+getDate()
+
+getDay()
+
+getHours()
+
+getMinutes()
+
+getSeconds()
+
+getTime()
+
+getFullYear()
+
+setDate()
+
+setHours()
+
+setMinutes()
+
+setMonth()
+
+setSecond()
+
+setTime()
+
+setFullYear()
+***********************
+
+
+Para que tome enero como 1 y no como cero se puede escribir
+
+getMonth()+1
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

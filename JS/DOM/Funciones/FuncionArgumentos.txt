@@ -1,0 +1,14 @@
+
+- Tenemos la palabra reservada arguments, que sirve para englobar un número indefinido de argumentos
+
+---------------------------------------
+let suma = function(){
+    let suma = 0
+    for( i = 0 ; i < arguments.length; i++){
+        suma += parseInt(arguments[i])
+    }
+    document.write(suma)
+}
+
+suma(1,2,3,2,1)          //Retorna 9
+----------------------------------------

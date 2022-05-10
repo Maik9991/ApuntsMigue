@@ -1,0 +1,13 @@
+- Contiene las url visitadas por el usuario
+- Es parte del objeto window
+
+- La única propiedad es .length
+
+- Métodos:
+
+****************************************
+history.back()
+
+history.forward()
+
+history.go(num)

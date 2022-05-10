@@ -1,0 +1,60 @@
+- El objeto window representa una ventana abierta en el navegador
+- El navegador crea el objeto ventana a través de un HTML
+
+Métodos:
+
+********************************************************
+alert(mensaje)
+
+confirm(mensaje)
+
+open(URL, ventana, width, height): puedo poner solo la URL, el segundo parametro puede ser _blank o self,
+
+close()
+
+
+prompt(mensaje)
+
+print()
+
+setTimeOut()
+
+setInterval
+
+clearInterval()
+
+scrollTo(xpos,ypos)
+
+scrollBy(xpos, ypos)
+
+resizeTo()
+
+resizeBy()
+
+moveTo()
+
+moveBy()
+*********************************************************
+
+- De window los principales objetos que salen son (JERARQUIA DE CLASES) :
+
+********************************************************
+- Location
+
+- History
+
+- Document------------->
+		    	- forms-----------> buttons
+		    	- anchors           checkbox
+			- links		    FileUpload
+			- images	    password, etc
+
+
+
+
+
+
+
+
+
+

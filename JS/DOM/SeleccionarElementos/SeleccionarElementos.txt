@@ -1,0 +1,12 @@
+************************************
+document.getElementById('id')
+
+document.getElementByTagName('span')
+
+document.getElementByName('name')
+
+document.querySelector('#id')
+
+document.querySelectorAll('selector')
+*************************************
+

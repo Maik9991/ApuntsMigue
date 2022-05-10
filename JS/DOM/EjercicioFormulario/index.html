@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   
+    <div class="contenedor">
+        <h2 id="h2ID">Formulario de Registro</h2>
+        <form class="form">
+            <div class="row">
+                <div class="col w-50">
+                    <input type="text" id="nombre" class="campos" placeholder="Nombre...">
+                </div>
+                <div class="col w-50">
+                    <input type="text" id="apellido" class="campos" placeholder="Apellido...">
+                </div>
+                <div class="col w-50">
+                    <input type="text" id="email" class="campos" placeholder="Email...">
+                </div>
+                <div class="col w-50">
+                    <input type="text" id="telefono" class="campos" placeholder="Telefono...">
+                </div>
+                <div class="col w-50">
+                    <input type="text" id="ciudad" class="campos" placeholder="Ciudad...">
+                </div>
+                <button id="btnAgregar" class="btn" type="button">Agregar</button>
+            </div>
+        </form>
+    </div>
+    <h2 id="titulo"style="text-align: center">Clientes registrados</h2>
+
+    <table id="tablaUsuarios" class="tabla">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th>Email</th>
+                <th>Telefono</th>
+                <th>Ciudad</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+    <script src="./index.js"></script>
+</body>
+</html>

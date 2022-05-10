@@ -1,0 +1,59 @@
+Clase String
+
+- Métodos de Strings:
+
+*********************************************
+charAt() : muestra el caracter que ocupa la posición index de la cadena
+
+indexOf(palabra, desde_donde_empieza_a_contar) : muestra el primer índice del caracter   //-1 si no encuentra
+
+lastIndexOf(): muestra el último caracter del indice. va desde el final al principio
+
+substring(primer_indice, ultimo_indice): muestra la cadena que hay entre el primer_indice y ultimo_indice 
+
+trim(): borra los espacios en blanco
+
+toLowerCase(): transforma en minúsculas
+
+toUppercase(): transforma en mayúsculas
+
+replace (vieja_cadena, nuevaCadena)
+
+let convertido_a_Array = cadena.split(''): convierte en un array separado según el argumento
+
+.length
+*********************************************
+
+- Métodos sobre la apariencia:
+
+**********************************************
+big(): muestra las letras más grandes
+
+blink(): muestra texto intermitente
+
+bold(): muestra texto en negrita
+
+fixed(): muestra texto en paso fijo
+
+fontcolor(color)
+
+fontsize(size)
+
+italics()
+
+small()
+
+strike(): muestra las letras tachada con una ralla
+
+sub(): muestra la letra en subíndice
+
+sup(): muestra la letra en superindice
+*********************************************************
+
+- Métodos sobre el HTML:
+
+********************************************************
+
+anchor(nombre_string) : este método crea un anchor llamado nombre_string como valor para el atributo name 
+
+link (href_string): este método crea un link a una URL designado por le argumento href_string

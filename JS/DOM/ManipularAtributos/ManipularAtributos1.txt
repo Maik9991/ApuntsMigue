@@ -1,4 +1,77 @@
 Estos métodos solo se pueden usar en nodos de tipo element (etiquetas)
 
-*******************************
-Element.getAttribute( attributeName )
+****************************************
+Element.getAttributeNode( attributeName )
+***************************************
+
+-------------------------------------------
+let h2 = document.querySelector("#titulo")
+
+let tituloAttr = h2.getAttributeNode('style')
+-------------------------------------------
+
+- Con .nodeType devuelve un número que corresponde a la tabla de valores (a consultar)
+
+Node.ATTRIBUTE_NODE
+
+- Puedo usarlo cómo valor para una condición
+
+--------------------------------------------------
+console.log(tituloAttr.nodeType)   //2
+
+console.log( tituloAttr.nodeType === Node.ATTRIBUTE_NODE)
+------------------------------------------------------
+
+- La única forma usando los métodos basados en nodos para obtener su valor es value o textContent
+
+---------------------------------------------------------
+console.log(tituloAttr.value)
+-------------------------------------------------------
+
+************************************************
+Element.setAttributeNode (NodeAttr)
+Element.createAttribute( AttributeName)
+************************************************
+
+- Selecciono el target
+- Creo el atributo
+- Debo escribir el valor que contiene, en este caso, el id que estoy insertando con .value
+- Lo incorporo
+
+
+--------------------------------------------------
+let Form = document.querySelector('.form')
+
+let attr = document.createAttribute('id')
+
+attr.value = ('formulario')
+
+Form.setAttributeNode(attr)
+--------------------------------------------------
+
+************************************************
+Element.removeAttributeNode(ownNodeAttribute)
+*************************************************
+
+Para removerlo primero debo guardarlo en una variable
+
+----------------------------------------------------
+let h2ID= document.querySelector("#h2ID")
+
+let h2IdRemove = h2ID.getAttributeNode('id') 
+
+console.log(h2ID)
+
+h2ID.removeAttributeNode(h2IdRemove)
+--------------------------------------------------
+
+- Tambien hay 2 propiedades
+**************************************************
+Element.Attributes : Devuelve una especie de array llamado nodeMap; para seleccionar un elemento puedo usar corchetes
+Element.ownerElement : si se eliminó el atributo devuelve null
+
+-----------------------------------------------------------
+let attributesImg = img.attributes
+
+attributesImg[0].value =  "url/image"
+-----------------------------------------------------------

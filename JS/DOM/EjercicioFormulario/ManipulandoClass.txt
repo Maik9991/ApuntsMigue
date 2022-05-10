@@ -1,0 +1,74 @@
+
+- Devuelve una colección tipo DOMTokenList, como una espécie de Array por los índices
+- Contiene varios métodos para manipular la clase del elemento seleccionado
+******************
+Element.classList
+*****************
+------------------------------
+  <p id="parrafo" class="fontSize40 colorRed"
+-----------------------------
+
+-------------------------------
+document.querySelector("#parrafo")
+
+pClass= parrafo.classList                  //Muestra el objeto
+console.log(pClass.value)            //Obtengo el atribuo como tal
+--------------------------------
+
+- Para agregar una clase
+
+**********************************
+DOMTokenList.add(name1, name2...)
+**********************************
+
+----------------------------------
+pClass.add('bold')
+---------------------------------
+
+- Puedo usar notacion de corchete para indexar
+
+---------------------------------
+console.log(pClass[2])                  //bold
+--------------------------------
+
+Tambien tengo el método remove, y también admite más de un parámetro
+
+-------------------------------------------
+pClass.remove('bold', 'fontSize40')
+------------------------------------------
+
+- Para devolver una clase basada en el indice
+
+******************************************
+pClass.item(0)                  //colorRed
+******************************************
+
+- es lo mismo que usar corchetes
+
+-----------------------------------------
+console.log(pClass[0])
+-----------------------------------------
+
+- Con Contains evalúa si contiene la clase o no
+
+****************************************
+pClass.contains('bold')                         //false , porque lo borré
+*****************************************
+
+- Toggle reemplaza una clase por otra
+- El segundo valor boolean sirve para true --> agregar    false--> eliminar
+- Si existe lo elimina, si  no existe lo agrega
+
+*****************************************
+DOMTokenList.toggle(name, force)
+******************************************
+
+- De esta manera se vuelve dinámico aumentando de tamaño con un clic
+
+----------------------------------------------
+parrafo.addEventListener('click', (e)=>{
+    pClass.toggle('fontSize40')
+})
+--------------------------------------------
+
+

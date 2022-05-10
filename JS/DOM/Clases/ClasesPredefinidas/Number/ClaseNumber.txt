@@ -1,0 +1,29 @@
+
+- 5 reglas según se instancia la clase Number
+
+---------------------------------------------------------
+let a = new Number()      	//0
+
+let b = new Number(8)    	//8
+
+let c = new Number("tres")      //NaN
+
+let d= new Number(true)         //1
+
+let e = new Number(false)       //0
+-----------------------------------------------------------
+
+- PROPIEDADES
+
+**********************************************************
+NaN ---> not a number
+
+MAXVALUE y MINVALUE
+
+NEGATIVE INFINITY Y POSITIVE INFINITY representan los valores negativos positivos y negativos a partir de los cuales 
+hay desbordamiento
+
+*********************************************************
+
+Se accede a ellas a partir del nombre de la clase
+
