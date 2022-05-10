@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Apuntes16.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<h1 id="crear-componente-de-gasto">Crear Componente de Gasto</h1>
+<ul>
+<li>Voy a App.jsx y  donde está isValidPresupuesto lo envuelvo todo en un Fragment y añado un main.</li>
+<li>Puedo cambiar el ternario que había por un &amp;&amp;. Si &quot;esto&quot; haz &quot;esto otro&quot;.</li>
+</ul>
+<p><img src="./Captura65.png" alt="Captura65"></p>
+<ul>
+<li>Creo el componente ListadoGastos, le añado un párrafo para visualizarlo cuando lo importe en el main App.jsx</li>
+</ul>
+<pre class="hljs"><code><div> {isValidPresupuesto &amp;&amp; (
+       <span class="xml"><span class="hljs-tag">&lt;&gt;</span>
+       <span class="hljs-tag">&lt;<span class="hljs-name">main</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">ListadoGastos</span> /&gt;</span>
+       <span class="hljs-tag">&lt;/<span class="hljs-name">main</span>&gt;</span>
+     <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">className</span>=<span class="hljs-string">"nuevo-gasto"</span>&gt;</span>
+       <span class="hljs-tag">&lt;<span class="hljs-name">img</span>  <span class="hljs-attr">src</span>=<span class="hljs-string">{IconoNuevoGasto}</span> <span class="hljs-attr">alt</span>=<span class="hljs-string">"icono-gasto"</span>
+       <span class="hljs-attr">onClick</span>=<span class="hljs-string">{handleNuevoGasto}</span>
+       /&gt;</span>
+     <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+       
+       <span class="hljs-tag">&lt;/&gt;</span></span>
+     )}
+</div></code></pre>
+<ul>
+<li>
+<p>Aparece en el lateral izquierdo
+<img src="./Captura66.png" alt="Captura66"></p>
+</li>
+<li>
+<p>Tiene la validación para que se muestre solo si el presupuesto es válido.</p>
+</li>
+<li>
+<p>Le falta la condición de : si no hay gastos aún que muestre no hay gastos o el gasto</p>
+</li>
+<li>
+<p>Agrego la clase al div de ListadoGastos &quot;listado-gastos contenedor&quot; y un h2 con Gastos</p>
+</li>
+<li>
+<p>Luce asi</p>
+</li>
+</ul>
+<p><img src="./Captura67.png" alt="Captura67"></p>
+<ul>
+<li>
+<p>Le paso via props el arreglo de gastos a ListadoGastos</p>
+</li>
+<li>
+<p>Le añado un ternario como validación para que muestre Gastos o no hay Gastos
+<img src="./Captura68.png" alt="Captura68"></p>
+</li>
+<li>
+<p>Ahora si no introduzco ningun gasto pone no hay gastos
+<img src="./Captura69.png" alt="Captura69"></p>
+</li>
+<li>
+<p>Pero si introduzco un gasto aparece Gastos</p>
+</li>
+<li>
+<p>despues de este h2 con la validación voy a usar gastos.map para iterar y mostrar los diferentes componentes Gasto que todavía tengo que crear, en el caso de que los haya.</p>
+<pre><code>  NOTA: recuerda que para que el return del callback esté implicito debe estar entre paréntesis. Si le pones llaves no renderizará el elemento
+</code></pre>
+</li>
+</ul>
+<p><img src="./Captura70.png" alt="Captura70"></p>
+<ul>
+<li>
+<p>Creo el componente Gasto con un párrafo para visualizar, lo importo en ListadoGastos</p>
+</li>
+<li>
+<p>Como mi objetivo es pasar la info del obnjeto de gastos, se lo paso via props y como debe tener un id único le paso el gasto.id</p>
+</li>
+<li>
+<p>Ahora si agrego un gasto lo renderiza en pantalla
+<img src="./Captura71" alt="Captura71"></p>
+</li>
+<li>
+<p>Bien, trabajando un poco el componente gasto le añado unas clases de css</p>
+</li>
+<li>
+<p>En el párrafo, cómo le pasé por via props gasto, puedo poner gasto.categoría</p>
+</li>
+<li>
+<p>Se puede usar desestructuración para no usar esta sintaxis de gasto.categoria y solo categoria</p>
+</li>
+</ul>
+<p><img src="./Captura72.png" alt="Captura72"></p>
+<ul>
+<li>Creo una nueva variable en guardarGasto con la fecha que se genera al crear el objeto</li>
+</ul>
+<p><img src="./Captura73.png" alt="Captura73"></p>
+<ul>
+<li>
+<p>El problema es que esta fecha no esta formateada, aparece en segundos desde el 1 de enero de 1970</p>
+</li>
+<li>
+<p>Le doy formato en la siguiente lección</p>
+</li>
+</ul>
+
+</body>
+</html>

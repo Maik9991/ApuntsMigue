@@ -1,0 +1,13 @@
+# Inicio
+- En esta lección se trabajará con styled components y una API externa
+- En la aplicación puedes elegir en un menú las monedas de curso legal
+        - Euro
+        - Libra esterlina
+        - Dolar
+        - Peso Mexicano
+- Puedes elegir una criptomoneda entre las 40 más concurridas para saber cual es su valor actual
+    - El precio más alto del día
+    - El precio más bajo
+    - El incremento del precio en tanto por ciento
+    - Puedes ver el icono de la criptomoneda a la izquierda
+------

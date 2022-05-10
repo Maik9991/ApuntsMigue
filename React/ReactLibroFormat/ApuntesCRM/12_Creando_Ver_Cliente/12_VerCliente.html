@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>12_VerCliente.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<h1 id="creando-componente-para-ver-cliente">Creando componente para ver-cliente</h1>
+<ul>
+<li>Puedo usar el useNavigate en el onClick del button con un arrow function para redireccionar</li>
+<li>Lo hago entre backticks para inyectarle el id dinámico que estoy extrayendo de la desestructuración</li>
+</ul>
+<pre class="hljs"><code><div>  &lt;button
+    className=<span class="hljs-string">"bg-yellow-600 hover:bg-yellow-700 block 
+    w-full text-white p-2 uppercase font-bold text-xs"</span>
+    type=<span class="hljs-string">"button"</span>
+    onClick={()=&gt;navigate(<span class="hljs-string">`/clientes/<span class="hljs-subst">${id}</span>`</span>)}&gt;Ver&lt;<span class="hljs-regexp">/button&gt;
+</span></div></code></pre>
+<ul>
+<li>Voy a App.jsx y en el path de un elemento que no he creado todavía llamado VerCLiente, lo dejo sólo con :id</li>
+<li>Al tener esos dos puntos, lo va a tratar como una variable</li>
+<li>Ahora, cómo hago la consulta del id para asociarlo con los id de la API?</li>
+<li>Para eso hay otro hook llamado useParams(). Lo meto en la variable params y le hago un console.log</li>
+</ul>
+<pre class="hljs"><code><div><span class="hljs-keyword">const</span> params = useParams()
+
+<span class="hljs-built_in">console</span>.log(params)
+</div></code></pre>
+<ul>
+<li>Lee de forma dinámica lo que hay en la url</li>
+<li>Me devuelve en consola un objeto con el id.</li>
+<li>Puedo extraer el id de params con desestructuracion</li>
+</ul>
+<pre class="hljs"><code><div><span class="hljs-keyword">const</span> VerCliente = <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {
+ 
+    <span class="hljs-keyword">const</span> {id} = useParams()
+    
+    <span class="hljs-keyword">return</span> (
+    <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>Ver cliente<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span></span>
+  )
+}
+</div></code></pre>
+<h1 id="mostrando-la-info-de-cliente-por-su-id">Mostrando la info de cliente por su id</h1>
+<ul>
+<li>Hay que hacer de nuevo una consulta a la APi desde ver cliente para mostrar la info</li>
+<li>Importo useEffect y el useState que usaré después</li>
+<li>Cuando se cargue el componente, cargará una vez y hará un llamado a la API, por eso el arreglo vacío</li>
+<li>Meto la url en un templateString para hacer dinámica la url con el id</li>
+<li>Pongo un console.log dentro del try con resultado, para visualizar el objeto que ya tengo</li>
+<li>Ese objeto es el que debo meter en el setState</li>
+</ul>
+<pre class="hljs"><code><div><span class="hljs-keyword">const</span> [cliente, setCliente] = useState({})
+    <span class="hljs-keyword">const</span> {id} = useParams()
+    useEffect(<span class="hljs-function"><span class="hljs-params">()</span>=&gt;</span>{
+        <span class="hljs-keyword">const</span> ObtenerClienteApi= <span class="hljs-keyword">async</span>()=&gt;{
+            <span class="hljs-keyword">try</span> {
+                <span class="hljs-keyword">const</span> url=<span class="hljs-string">`http://localhost:4000/clientes/<span class="hljs-subst">${id}</span>`</span>
+                <span class="hljs-keyword">const</span> respuesta = <span class="hljs-keyword">await</span> fetch(url)
+                <span class="hljs-keyword">const</span> resultado = <span class="hljs-keyword">await</span> respuesta.json()
+                setCliente(resultado)
+            } <span class="hljs-keyword">catch</span> (error) {
+               <span class="hljs-built_in">console</span>.log(error) 
+            }
+
+        } 
+        ObtenerClienteApi()
+
+    },
+    [])
+</div></code></pre>
+<ul>
+<li>Ahora solo tengo que darle formato con el html</li>
+</ul>
+<pre class="hljs"><code><div>&lt;p className=<span class="hljs-string">"text-2xl text-gray-700"</span>&gt;
+            <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">className</span>=<span class="hljs-string">"uppercase font-bold"</span>&gt;</span>Cliente: <span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span></span>
+            {cliente.nombre}
+        &lt;<span class="hljs-regexp">/p&gt;
+</span></div></code></pre>
+<ul>
+<li>Lo duplico el número de campos a mostrar</li>
+</ul>
+<h1 id="a%C3%B1adiendo-componente-cuando-no-hay-id">Añadiendo componente cuando no hay id</h1>
+<ul>
+<li>Si me fijo, si coloco un id que no existe en consola muestra en el state un objeto vacío</li>
+<li>Puedo usar eso como condición en un ternario para mostrar el componente</li>
+</ul>
+<pre class="hljs"><code><div>  <span class="hljs-built_in">Object</span>.keys(cliente).length ===<span class="hljs-number">0</span> ? <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>No hay Resultados<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span></span>:(
+    <span class="hljs-comment">//Aqui dentro todo lo que hay en el return de Ver Cliente</span>
+</div></code></pre>
+<h1 id="edici%C3%B3n-de-clientes">Edición de clientes</h1>
+<ul>
+<li>Voy al botón de editar y en el onClick le coloco un arrow function con un navigate con backticks para inyectarle el id</li>
+</ul>
+<pre class="hljs"><code><div> &lt;button
+    className=<span class="hljs-string">"bg-blue-600 hover:bg-blue-700 block 
+     w-full text-white p-2 uppercase font-bold text-xs mt-3"</span>
+    type=<span class="hljs-string">"button"</span>
+     onClick={()=&gt;navigate(<span class="hljs-string">`/clientes/editar/<span class="hljs-subst">${id}</span>`</span>)}&gt;Editar&lt;<span class="hljs-regexp">/button&gt;
+
+</span></div></code></pre>
+<ul>
+<li>
+<p>Copio y pego el contenido de NuevoCliente a EditarCliente</p>
+</li>
+<li>
+<p>Necesito importar useEffect para consultar la API, useState para setear el state con el resultado y params para leer el id que hay en la url</p>
+</li>
+<li>
+<p>Todo funciona exactamente igual que en VerCliente, porque necesito obtener el cliente que voy a editar. Copio y pego</p>
+</li>
+</ul>
+<pre class="hljs"><code><div> <span class="hljs-keyword">const</span> [cliente, setCliente] = useState({})
+  <span class="hljs-keyword">const</span> {id} = useParams()
+ 
+
+  useEffect(<span class="hljs-function"><span class="hljs-params">()</span>=&gt;</span>{
+      <span class="hljs-keyword">const</span> ObtenerClienteApi= <span class="hljs-keyword">async</span>()=&gt;{
+          <span class="hljs-keyword">try</span> {
+              <span class="hljs-keyword">const</span> url=<span class="hljs-string">`http://localhost:4000/clientes/<span class="hljs-subst">${id}</span>`</span>
+              <span class="hljs-keyword">const</span> respuesta = <span class="hljs-keyword">await</span> fetch(url)
+              <span class="hljs-keyword">const</span> resultado = <span class="hljs-keyword">await</span> respuesta.json()
+              setCliente(resultado)
+          } <span class="hljs-keyword">catch</span> (error) {
+             <span class="hljs-built_in">console</span>.log(error) 
+          }
+
+      }  
+      ObtenerClienteApi()
+
+  },
+  [])
+</div></code></pre>
+<ul>
+<li>Le paso por props a Formulario el cliente y lo extraigo en Formulario</li>
+<li>Formik tiene una prop llamada enableReinitialize que sirve para tomar valores iniciales que vienen desde una API. Por default es false</li>
+<li>La coloco en true después de initialValues</li>
+<li>Voy a usar default.props con cliente como objeto vacío para el nuevoCliente</li>
+<li>Funciona como los parámetros por default de las funciones</li>
+</ul>
+<pre class="hljs"><code><div>Formulario.defaultProps ={
+  <span class="hljs-attr">cliente</span>: {}
+}
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> Formulario
+</div></code></pre>
+<ul>
+<li>Si no está presente, entran estas defaultprops</li>
+<li>Si ahora voy a NuevoCliente tiene un prop llamado cliente que está con un objeto vacío</li>
+<li>Solucionado esto, ahora si puedo usar initialValues con una condición.</li>
+<li>Si a initialValues le coloco cliente.nombre, lo imprime en el formulario</li>
+<li>Eso es gracias al enableReinitialize</li>
+</ul>
+<blockquote>
+<p>Si quito enableReinitialize aparece en el objeto en consola pero no lo imprime en el campo. Por eso es importante.</p>
+</blockquote>
+<ul>
+<li>Ahora, si le doy a nuevoCliente y miro el initialValues en consola lo marca como undefined</li>
+<li>La idea es que inicie como un string vacío</li>
+<li>Para eso le añado un ternario con esta sintaxis</li>
+<li>Si está cliente.nombre añádelo, si no string vacío</li>
+</ul>
+<pre class="hljs"><code><div>
+      &lt;Formik
+        initialValues ={{
+          <span class="hljs-attr">nombre</span>: cliente?.nombre ?? <span class="hljs-string">""</span>,
+          <span class="hljs-attr">empresa</span>: cliente?.empresa ?? <span class="hljs-string">""</span>,
+          <span class="hljs-attr">email</span>:cliente?.email ?? <span class="hljs-string">""</span>,
+          <span class="hljs-attr">telefono</span>:cliente?.telefono ?? <span class="hljs-string">""</span>,
+          <span class="hljs-attr">notas</span>:cliente?.notas ?? <span class="hljs-string">""</span>
+        }}
+        enableReinitialize={<span class="hljs-literal">true</span>}
+        onSubmit={<span class="hljs-keyword">async</span>(values, {resetForm})=&gt;{
+          <span class="hljs-keyword">await</span> handleSubmit(values)
+
+          resetForm();
+        }}
+
+
+</div></code></pre>
+<ul>
+<li>Para mostrar el texto de fomra condicional</li>
+</ul>
+<pre class="hljs"><code><div>&lt;h1 className=<span class="hljs-string">"text-gray-600 font-bold text-3xl uppercase text-center"</span>&gt;
+      {cliente.nombre ? <span class="hljs-string">"Editar Cliente"</span>: <span class="hljs-string">"Agregar Cliente"</span>}
+    &lt;<span class="hljs-regexp">/h1&gt;
+</span></div></code></pre>
+<ul>
+<li>
+<p>Hago lo mismo con el botón</p>
+</li>
+<li>
+<p>Este parámetro ?? significa si el valor de la izquierda existe  asignalo, y si no el de la derecha</p>
+</li>
+<li>
+<p>Coloco un ternario en EditarCliente para que no muestre el formulario si no hay cliente</p>
+<ul>
+<li>en el caso de poner un id que no existe mostrará editar pero no el</li>
+</ul>
+</li>
+</ul>
+<pre class="hljs"><code><div>  <span class="hljs-keyword">return</span> (
+    <span class="xml"><span class="hljs-tag">&lt;&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">h1</span> <span class="hljs-attr">className</span>= <span class="hljs-string">"font-black text-4xl text-blue-400"</span>&gt;</span>Editar Cliente<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
+       <span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">className</span>=<span class="hljs-string">"mt-3"</span>&gt;</span>Utiliza este formulario para editar a un cliente<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+   
+   {cliente.nombre ? (
+
+       <span class="hljs-tag">&lt;<span class="hljs-name">Formulario</span> 
+            <span class="hljs-attr">cliente</span>=<span class="hljs-string">{cliente}/</span>&gt;</span>
+   ): "No hay un cliente con ese id"
+   
+   }
+  <span class="hljs-tag">&lt;/&gt;</span></span>
+  )
+</div></code></pre>
+
+</body>
+</html>
