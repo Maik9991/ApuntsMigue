@@ -1,0 +1,41 @@
+
+- Contiene información acerca del navegador
+
+*********************************************
+navigator.appCodeName
+
+navigator.appName
+
+navigator.appversion
+
+navigator.cookiesEnabled
+
+navigator.geolocation       
+
+navigator.language
+
+navigator.onLine
+
+navigator.platform
+
+navigator.product
+
+navigator.userAgent
+***************************************************
+
+
+-------------------------------------------------------
+function mostrarPosicion(posicion){
+
+	alert("latitud: "+ posicion.coords,latitude + "longitud: "+posicion.coords.longitude)
+
+function geoposicion(){
+	if(navigator.geolocation){
+		navigator.geolocation.getCurrentPosition(mostrarPosicion)
+	}else{
+	alert("Este navegador no acepta geolocalización")	}
+}
+
+
+-----------------------------------------------------------
+

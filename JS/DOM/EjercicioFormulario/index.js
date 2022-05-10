@@ -51,3 +51,7 @@ document.getElementById("tamano38").onclick = tamano38
 document.querySelector('#button').addEventListener("click", ()=>{
     open('https:www.google.es')
 })
+
+if(screen.width <= 768){
+    alert("Hola")
+}

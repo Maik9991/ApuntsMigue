@@ -1,0 +1,22 @@
+- Screen contiene información sobre la pantalla del usuario, el monitor
+
+**********************************************************
+screen.width
+
+screen.heigth
+
+screen.availWidth
+
+screen.availHeight
+
+screen.colorDepth
+
+screen.pixelDepth
+***********************************************************
+
+Ejemplo. Aqui va a trabajar solamente con la pantalla 768px
+
+--------------------------------------------
+if(screen.width <= 768){
+	alert("Hola")
+}

@@ -1,0 +1,38 @@
+
+- Se pueden iniciar mediante el método constructor
+
+---------------------------
+let array = new Array();
+--------------------------
+
+O mediante el método literal
+
+----------------------
+let nou_array = [1,2,3,4,5,6]
+--------------------------
+
+MèTODES:
+************************************
+.length
+
+.concat(valor1, valor2) o array.concat(array2)
+
+.join()   cadena = frutas.join()
+
+.reverse() 
+
+.sort()   	ordena el array alfabéticamente
+
+.shift()  	elimina el primer valor del array
+
+.pop()    	elimina el último elemento
+
+.unshift(elemento) agrega un elemento al inicio
+
+.push(elemento)    agrega un elemento al final
+
+.slice(p1,p2)        p1= valor inicial p2= hasta donde
+
+.splice(p1,p2)	     p1= valor incial p2= a partir de ese indice elimine p2 números
+
+.toString()
