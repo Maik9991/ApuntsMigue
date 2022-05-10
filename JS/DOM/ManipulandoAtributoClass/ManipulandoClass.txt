@@ -1,0 +1,51 @@
+***************************
+Element.classList  : Devuelve como una especie de array, una colecciónd e tipo DOMTokenList. Contiene varios métodos
+
+DOMTokenList.add( name1,name2 ) 
+
+DOMTokenList.remove( name1, name2)
+
+DOMTokenList.item(index)  : Devuelve una clase basado en el índice
+
+DOMToken.contains(name)  : Devuelve un boolean si contiene o no el elemento
+
+DOMTokenList.replace( oldName, newName ) : reemplaza una clase por otra
+
+DOMTokenList.toggle( name, force) : el primer parametro es obligatorio. Si existe el elemento lo elimina y si no existe lo agrega
+
+******************************
+
+
+---------------------------
+<p class="fontSize40 colorRed">
+-----------------------------
+
+-----------------------------
+parrafo.classList  //devuelve el elemento
+
+parrafo.classList.value   //devuelve el valor del atributo
+
+pClass= parrafo.classList
+
+pClass.add('bold')
+
+console.log(pClass[2])       //bold
+
+pClassRemove('fontSize40')
+
+pClass.item(0)                //colorRed
+
+pClass.contains('bold')       //true
+-------------------------------------------------
+
+- Ahora, cada vez que clico en el párrafo se tacha y se destacha
+
+-----------------
+parrafo.addEventListener("click", (e)=>{ pClass.toggle('lineThrough') })
+
+-----------------------------------------------------------
+
+- Si al toggle le añado un true es para forzar que si existe lo elimina y si no lo inserta
+- Con false es lo contrario 
+
+
