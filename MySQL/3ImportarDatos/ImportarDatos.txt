@@ -1,0 +1,10 @@
+- Clic derecho--> Table Inspector para ver lo que hay en las tablas
+
+- Clic derecho Table Data Import Wizard
+
+- Se abre el Wizard/Asistente
+
+- Truncate es para borrar todo e insertar nueva tabla
+
+- En encoding es aconsejable poner windows 1250 por los acentos y ñ
+

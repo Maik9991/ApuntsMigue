@@ -1,0 +1,746 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>CRUDS.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<h1 id="cruds">CRUDS</h1>
+<p>Para create ya vimos insertOne e insertMany
+-Puedo crear mis propios id's</p>
+<pre><code>    &gt;db.personas.insertMany( [ {_id:&quot;yoga&quot;, nombre:&quot;Natasha&quot;}, {_id:&quot;running&quot;, nombre: &quot;Carlos&quot;} ] )
+</code></pre>
+<p>Yo puedo reescribir los id's, pero no repetirlos en dos valores distintos</p>
+<ul>
+<li>El comportamiento de Mongo por defecto es que cuando encuentra un error deja de actuar</li>
+<li>Si sobreescribí una clase y luego tuve un error, la primera acción se realizará pero las siguientes no</li>
+</ul>
+<p>Con el parámetro  ordered: false se obvia este comportamiento y si encuentra un fallo sigue con las otras operaciones</p>
+<pre><code>    &gt;db.personas.insertMany( [ {_id:&quot;yoga&quot;, nombre:&quot;Natasha&quot;}, {_id:&quot;running&quot;, nombre: &quot;Carlos&quot;} ], {ordered: false} )
+</code></pre>
+<h1 id="importar-un-archivo-json-con-mongoimport">Importar un archivo JSON con mongoimport( )</h1>
+<p>Hay que salir de la shell de mongo con ctrl+C</p>
+<ul>
+<li>
+<p>Me situo en el directorio de la carpeta.</p>
+</li>
+<li>
+<p>El documento es una matriz. Lo especifico con --jsonArray</p>
+</li>
+<li>
+<p>Uso el --drop para borrarla por si ya existe</p>
+<pre><code>  C:&gt; mongoimport nombre_del_archivo.json - d dbnombre_de_la_base_de_datos -c nombre_de_la_colección --jsonArray --drop
+</code></pre>
+</li>
+<li>
+<p>inicio la shell de mongo con mongo</p>
+<pre><code>  &gt; show dbs
+  &gt; use dbnombre_de_la_base_de_datos
+  &gt; show collections
+</code></pre>
+</li>
+</ul>
+<h2 id="resumen">Resumen:</h2>
+<pre><code>- mongoimport
+- -d para el nombre de la database
+- -c para el nombre de la colección
+- --jsonArray para especificar que es un arreglo
+- --drop para borrar si ya hubiera una existente
+</code></pre>
+<h1 id="operadores-en-mongodb">Operadores en MongoDB</h1>
+<blockquote>
+<p>En la documentación oficial, en Reference/Operators estan los query and projection operators, logical, evaluation, array...</p>
+</blockquote>
+<ul>
+<li>
+<p>Para encontrar a los usuarios por el apellido</p>
+<pre><code>  &gt; db.usuarios.find( {apellido: &quot;Santos&quot;} ).pretty()
+</code></pre>
+</li>
+<li>
+<p>Se puede usar el operador $eq para encontrar valores iguales</p>
+<pre><code>  &gt; db.usuarios.find( { &quot;Salario Anual&quot;: {$eq:&quot;49000&quot;} } )
+</code></pre>
+</li>
+</ul>
+<h2 id="operadores-de-comparaci%C3%B3n">Operadores de comparación</h2>
+<ul>
+<li>
+<p>Si uso findOne, solo me mostrará el primero. Si uso find me mostrará todos</p>
+<ul>
+<li>
+<p><strong>$ne</strong> not equal: traerá aquel o aquellos documentos que no sean igual a esta condición o filtro</p>
+<pre><code>  &gt; db.usuarios.find( { &quot;Salario Anual&quot;: {$ne:&quot;49000&quot;} } )
+</code></pre>
+</li>
+<li>
+<p><strong>$gt</strong> greater than, mayor que</p>
+</li>
+<li>
+<p><strong>$gte</strong> greater than or equal, mayor o igual que</p>
+</li>
+<li>
+<p><strong>$lt</strong> less than, menor que</p>
+</li>
+<li>
+<p><strong>$in</strong> si los elementos estan en la lista</p>
+<pre><code>  &gt; db.usuarios.find( {&quot;Salario Anual&quot;: { $in:[ &quot;48000&quot;,&quot;51000&quot;, &quot;54000&quot; ] } } )
+</code></pre>
+</li>
+<li>
+<p><strong>$nin</strong> not in, incluirá los que no tengan los elementos de la lista</p>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="operadores-de-l%C3%B3gica">Operadores de lógica</h2>
+<ul>
+<li>
+<p><strong>and</strong> y</p>
+</li>
+<li>
+<p><strong>or</strong> o</p>
+</li>
+<li>
+<p><strong>not</strong> ninguno</p>
+</li>
+<li>
+<p><strong>nor</strong> cualquiera que no sean estas dos</p>
+</li>
+<li>
+<p>Ejemplos</p>
+<ul>
+<li>
+<p>Tráeme los que tengan el apellido Pérez o Gutierrez</p>
+<pre><code>  &gt; db.usuarios.find( {$or: {apellido:&quot;Pérez&quot;}, {apellido:&quot;Gutiérrez&quot;} } )
+</code></pre>
+</li>
+<li>
+<p>Tráeme los que tengan los dos apellidos</p>
+<pre><code>  &gt; db.usuarios.find( {$and: {apellido:&quot;Pérez&quot;}, {apellido:&quot;Gutiérrez&quot;} } )
+</code></pre>
+</li>
+</ul>
+<p>Puedo usar operadores dentro de las consultas</p>
+<pre><code>  &gt; db.usuarios.find( $and: {&quot;Salario&quot;: {$gt: &quot;430000&quot;}, &quot;Salario&quot;: {$lt:54000} } ).pretty()
+</code></pre>
+</li>
+</ul>
+<p>Si pongo .count() al final me dice cuántos matches en número</p>
+<p>Puedo usar el not para decir no igual a simulando el <strong>ne</strong></p>
+<pre><code>    &gt; db.usuarios.find(&quot;Salario anual&quot;: {$not: {$eq:&quot;49000&quot;}}).count()
+</code></pre>
+<h1 id="operadores-de-elemento">Operadores de elemento</h1>
+<ul>
+<li>
+<p><strong>$exixts</strong> busca si existe ese campo en los documentos</p>
+<ul>
+<li>
+<p>Esto mostrará aquellos que no tengan Salario Anual</p>
+<pre><code>  &gt; db.usuarios.find( {&quot;Salario Anual&quot;: {$exists:false} } ).pretty()
+</code></pre>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>type</strong> selecciona el documento si especificas el tipo de dato que tiene ese documento: number, null, boolean, string</p>
+<pre><code>      &gt; db.usuarios.find( {&quot;Salario Anual&quot;: {$type:&quot;string&quot;} } ).pretty()
+      &gt; db.usuarios.find( {&quot;Salario Anual&quot;: {$type:&quot;number&quot;, $gt:30000} } ).pretty()
+</code></pre>
+</li>
+</ul>
+<h1 id="operadores-de-evaluaci%C3%B3n">Operadores de evaluación</h1>
+<ul>
+<li>
+<p><strong>regex</strong> encuentra cualquier texto en cualquier expresión</p>
+<pre><code>  &gt; db.usuarios.find( {&quot;Categoría&quot;: {$regex: /Jefe/}} ).pretty()
+</code></pre>
+</li>
+<li>
+<p><strong>expr</strong> compara expresiones, como por ejemplo ventas y objetivos. Tiene una sintaxis específica</p>
+<ul>
+<li>
+<p>uso greater than</p>
+<pre><code>   &gt; db.ventas.find( {$expr: { $gt[&quot;$ventas&quot;, &quot;$objetivos&quot;] } } )
+</code></pre>
+</li>
+</ul>
+</li>
+<li>
+<p>Las ventas superen el objetivo pero si las ventas son menor que 100 traer solo las ventas si superaron por 20 las del objetivo.</p>
+</li>
+<li>
+<p>Primero mayor que con el objetivo
+-usaré then (después). $cond para la condición con if</p>
+</li>
+<li>
+<p>Ventas less than es la condición, luego uso el then</p>
+</li>
+<li>
+<p>Substract para restar</p>
+<pre><code>  &gt;db.ventas( { $expr: {$gt: [{$cond: {if:{$lt:[&quot;$ventas&quot;,100] }, then:{$substract:[&quot;$ventas&quot;, 20]} else: &quot;$ventas&quot;}}, &quot;$objetivo&quot;  ] } } )
+</code></pre>
+</li>
+</ul>
+<hr>
+<h1 id="arrays">Arrays</h1>
+<ul>
+<li>tengo este objeto en usuarios:
+{
+&quot;_id&quot;: &quot;1234&quot;,
+&quot;nombre&quot;: &quot;Pepito&quot;,
+&quot;direccion&quot;: {
+&quot;ciudad&quot;: &quot;Barcelona&quot;
+}
+}</li>
+</ul>
+<p>Para buscar por dirección Barcelona es</p>
+<pre><code>   &gt; db.usuarios.find( { direccion:{ciudad:&quot;Barcelona&quot;} } ).pretty() 
+   &gt; db.usuarios.insertOne({nombre:&quot;David&quot;, direccion:{ciudad: &quot;Barcelona&quot;, calle:&quot;Còrsega&quot;}})
+</code></pre>
+<p>Cuando uso find hago una búsqueda exacta. Sólo va a encontrar lo que coincida exactamente por lo que David no saldría</p>
+<p>Si quiero que salga David sería con la notación con punto:</p>
+<pre><code>   &gt; db.usuarios.find( { &quot;direccion.ciudad&quot;:&quot;Barcelona&quot;}  ).pretty() 
+</code></pre>
+<ul>
+<li>
+<p><strong>$size</strong> busca el número de elementos dentro de una matriz
+- Me devuelve el documento que tiene 2 aficiones</p>
+<pre><code>  &gt; db.usuarios.find({aficiones: {$size:2}})
+</code></pre>
+</li>
+<li>
+<p><strong>$all</strong> coge todos los elementos independientemente del orden
+- si tiene nadar y correr, puede tener otras aficiones también que lo mostrará</p>
+<pre><code>  &gt; db.usuarios.find( {aficiones: {$all:[&quot;nadar&quot;, &quot;correr&quot;] } } )
+</code></pre>
+</li>
+<li>
+<p><strong>$elemMatch</strong>  es si coincide con el elemento</p>
+</li>
+<li>
+<p>Busca dónde la nota de mates sea mayor a 85 e inglés a 80 pero con and busca que uno de los dos se cumpla porque busca en todo el documento</p>
+<pre><code> &gt; db.usuarios.find( {$and:[ {&quot;notas.mates&quot;:{$gt:85}, {&quot;notas.ingles: {$gt:80 } } } ] } ).pretty()
+</code></pre>
+</li>
+<li>
+<p>Para hacer que busque dentro de ese elemento específico usaré <strong>elemMatch</strong></p>
+</li>
+<li>
+<p>Ahora solo devuelve los que se cumplen ambas condiciones
+&gt;db.usuarios.find( {notas: {$elemMatch {mates:{$gt:85}, {ingles: {$gt:80 }  } } } ).pretty()</p>
+</li>
+</ul>
+<h1 id="find-y-el-cursor">find y el cursor</h1>
+<p>Puedo guardar en variables una busqueda</p>
+<pre><code>    &gt; const objetoCursor = db.usuarios.find()
+</code></pre>
+<p>De esta manera solo saldrá de uno en uno</p>
+<pre><code>    &gt; objetoCursor.next()
+</code></pre>
+<p>Con .hasNext() pregunta si se quiere el siguiente</p>
+<h1 id="ordenando-con-sort">Ordenando con sort()</h1>
+<ul>
+<li>
+<p><strong>sort</strong> Se puede añadir el orden que se quiere
+- Si le pongo en 1 lo hace en orden descendiente, al contrario con -1</p>
+<pre><code>  &gt; db.usuarios.find().sort({Empleo_ID:1})
+  &gt; db.usuarios.find().sort({Oficina:-1, Empleo_ID:1})
+</code></pre>
+</li>
+</ul>
+<h1 id="skip-y-limit">skip() y limit()</h1>
+<ul>
+<li>
+<p>skip() salta
+- Me salto los primeros 10</p>
+<pre><code>  &gt; db.usuarios.find().sort({Empleo_ID:1}).skip(10)
+</code></pre>
+</li>
+<li>
+<p>limit() limita
+- Sáltate los 10 primeros, me devuelvas solo los 2 primeros despues de esos 10 que te saltas</p>
+<pre><code>  &gt; db.usuarios.find().sort({Empleo_ID:1}).skip(10).limit(2)
+</code></pre>
+</li>
+</ul>
+<h1 id="proyecci%C3%B3n">Proyección</h1>
+<ul>
+<li>
+<p>Son los datos que vamos a mostrar, proyectar con find</p>
+</li>
+<li>
+<p>Proyecta los nombres. Aparecen todos los nombres de la colección</p>
+<pre><code> &gt; db.usuarios.find( {}, {&quot;Nombre&quot;: 1} )
+</code></pre>
+</li>
+</ul>
+<h1 id="proyecci%C3%B3n-en-matrices">Proyección en Matrices</h1>
+<p>Devuelve todos los documentos con aficiones</p>
+<pre><code>            &gt; db.usuarios.find({aficiones:1}). pretty
+</code></pre>
+<p>Si quiero que solo muestre la afición que he escogido previamente uso el .$: 1</p>
+<pre><code>            &gt; db.usuarios.find({aficiones: &quot;correr&quot;},{aficiones.$:1}). pretty
+</code></pre>
+<h1 id="slice">$slice</h1>
+<ul>
+<li>
+<p><strong>$slice</strong> con 1 argumento es cuántos cojo
+- con dos es cuántos me salto y cuantos corto</p>
+<pre><code>  &gt; db.usuarios.find( {nombre: &quot;David&quot;}, { aficiones: {$slice:[1, 1]} } )
+</code></pre>
+</li>
+</ul>
+<hr>
+<h1 id="update">Update</h1>
+<pre><code>    &gt; db.usuarios.updateOne({&quot;nombre&quot;:&quot;Juan&quot;}, {$set: { notas:[ { año:1, mates:0,ingles:3 } ] } } )
+</code></pre>
+<ul>
+<li>
+<p>Puedo usar updateMany y el operador $in para incluir dos o más documentos</p>
+<pre><code>  &gt; db.usuarios.updateMany({&quot;nombre&quot;:{$in: [&quot;Juan&quot;,&quot;Alfonso&quot;] } }, {$set: { notas:[ { año:1, mates:0,ingles:3 } ] } } )
+</code></pre>
+</li>
+</ul>
+<h1 id="incrementando-valores-con-inc">Incrementando valores con $inc</h1>
+<ul>
+<li>
+<p><strong>$inc</strong> incrementaen n, se pueden usar negativos</p>
+<pre><code>  &gt; db.usuarios.updateOne({nombre: &quot;Juan&quot;}, {$inc:{edad:1} } )
+</code></pre>
+</li>
+</ul>
+<h1 id="actualizando-valores-con-min-max-mul">Actualizando valores con $min, $max, $mul</h1>
+<ul>
+<li>
+<p><strong>$min</strong> solo lo va a actualizar si es menor que el valor actual, es decir si resta</p>
+<pre><code>  &gt; db.usuarios.updateOne({nombre: &quot;Juan&quot;}, {$min:{edad:20} } )
+</code></pre>
+</li>
+<li>
+<p><strong>$max</strong> lo mismo que min pero al revés</p>
+</li>
+<li>
+<p><strong>$mul</strong> es multiplicar</p>
+</li>
+<li>
+<p>Si quiero que incremente la edad el 10% lo multiplico por 1.1</p>
+<pre><code>  &gt; db.usuarios.updateOne({nombre: &quot;Juan&quot;}, {$mul:{edad:1.1} } )
+</code></pre>
+</li>
+</ul>
+<h1 id="eliminando-un-campo-con-unset">Eliminando un campo con $unset</h1>
+<ul>
+<li>
+<p><strong>$unset</strong> es el opuesto a set</p>
+<pre><code>  &gt; db.usuarios.updateOne( {nombre:&quot;Juan&quot;}, {$set:{dirección: null} } )
+</code></pre>
+</li>
+</ul>
+<p>Si quiero borrar dirección uso $unset y desaparece el campo</p>
+<pre><code>    &gt; db.usuarios.updateOne( {nombre:&quot;Juan&quot;}, {$unset:{dirección:&quot;&quot;} } )
+</code></pre>
+<h1 id="renombrando-con-rename">Renombrando con $rename</h1>
+<ul>
+<li>
+<p>Ahora nombre irá con mayuscula</p>
+<pre><code>  &gt; db.usuarios.updateOne( {nombre: &quot;Juan&quot;}, {$rename:{nombre: &quot;Nombre&quot;} } )
+</code></pre>
+</li>
+</ul>
+<h1 id="upsert">Upsert</h1>
+<ul>
+<li>
+<p>Es una mezcla de insert y update. Si exsite actualizalo, si no existe, créalo</p>
+</li>
+<li>
+<p>Se usa con un objeto incluyendo upsert</p>
+<pre><code>  &gt; db.usuarios.updateMany({&quot;nombre&quot;: &quot;Juan&quot; }, {$set: { notas:[ { año:1, mates:0,ingles:3 } ] } }, {upsert: true} )
+</code></pre>
+</li>
+</ul>
+<hr>
+<h1 id="delete">Delete</h1>
+<ul>
+<li>
+<p>deleteOne(), deleteMany() . Puedo usar el operador $in para incluir dos o mas en la eliminación con many</p>
+<pre><code>  &gt; db.usuarios.deleteMany( {nombre: {$inc:[&quot;Mario&quot;, &quot;Juana&quot;] } } )
+</code></pre>
+</li>
+</ul>
+<h1 id="borrando-diferentes-niveles-en-mongo">Borrando diferentes niveles en Mongo</h1>
+<ul>
+<li>
+<p>Borrar todos los documentos:</p>
+<pre><code>  &gt; db.usuarios.deleteMany( { } )
+</code></pre>
+</li>
+<li>
+<p>Otra opción es usar drop para borrar la colección</p>
+<pre><code>  &gt; db.usuarios.drop()
+</code></pre>
+</li>
+</ul>
+
+</body>
+</html>

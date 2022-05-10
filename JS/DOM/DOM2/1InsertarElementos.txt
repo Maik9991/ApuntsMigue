@@ -5,7 +5,7 @@
 Element.before() y Element.after()
 ***********************
 
-- Estos métodos también permiten agregar más de un argumento a la vez
+- Estos métodos también permiten agregar más de un elemento a la vez
 
 - Before no agrega el elemento dentro, sino que lo agrega antes de la etiqueta en cuestión, cómo un hermano
 - After lo hace después

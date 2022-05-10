@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>PrimerosPasos.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<h1 id="primeros-pasos">Primeros Pasos</h1>
+<p>Después de la instalación, en una consola hago correr el servidor</p>
+<pre><code>    C:&gt; mongod
+</code></pre>
+<p>Y en otra consola, corro mongo</p>
+<pre><code>    C:&gt; mongo
+</code></pre>
+<p>Ctrl+L para limpiar la pantalla</p>
+<p>Para mostrar las bases de datos</p>
+<pre><code>    C:&gt; show dbs
+</code></pre>
+<p>Para crear una db <code>(database)</code></p>
+<pre><code>    C:&gt; use tienda
+</code></pre>
+<p>Creo una colección nueva llamada productos, e inserto un nuevo documento</p>
+<pre><code>    C:&gt; db.productos.insertOne({producto:&quot;libro1&quot;, precio: 9.99})
+</code></pre>
+<p>Para ver todos los documentos de esta colección</p>
+<pre><code>    C:&gt; db.productos.find()
+</code></pre>
+<p>Para verlo en un formato más amigable</p>
+<pre><code>    C:&gt; db.productos.find().pretty()
+</code></pre>
+<p>Puedo poner los campos que quiera</p>
+<pre><code>    C:&gt; db.productos.insertOne({producto:&quot;libro1&quot;, precio: 9.99, descripción:&quot;buen libro&quot; })
+</code></pre>
+<p>Puedo insertar un documento dentro de otro</p>
+<pre><code>     C:&gt; db.productos.insertOne({producto:&quot;libro1&quot;, precio: 9.99, descripción:&quot;buen libro&quot;, detalles:{tapa: &quot;dura&quot;, páginas: 200} })
+</code></pre>
+<p>Creo la base de datos usuarios. En realidad no se crea hasta que no le introduzco datos</p>
+<pre><code>    C:&gt; use usuarios
+</code></pre>
+<p>Creo la colección usuarioDatos e inserto un documento</p>
+<pre><code>    C:&gt; db.usuarioDatos.insertOne({nombre:&quot;Juan&quot;, edad: 20})
+</code></pre>
+<p>Al insertarlo, ObjectId tiene la información de la hora en que se introdujeron los datos</p>
+<ul>
+<li>Tipos de datos: puede albergar números, strings, booleanos, otros documentos...</li>
+<li>No pueden haber 2 id's iguales</li>
+</ul>
+<hr>
+<h1 id="crud">CRUD</h1>
+<ul>
+<li>
+<p>C de Create</p>
+</li>
+<li>
+<p>R de Read</p>
+</li>
+<li>
+<p>U de Update</p>
+</li>
+<li>
+<p>D de Delete</p>
+</li>
+<li>
+<p>Hay 3 casos de uso habituales</p>
+<ul>
+<li>Aplicación, una web, una app: MongoDB driver</li>
+<li>Analítica o Businnes Inteligence: conector BI/ shell</li>
+<li>Administración: shell</li>
+</ul>
+</li>
+<li>
+<p>Todos ellos conectando al MongoDB Server</p>
+</li>
+</ul>
+<hr>
+<h2 id="create">Create</h2>
+<pre><code>    insertOne(data, options)
+    insertMany(data, options)
+</code></pre>
+<h2 id="read">Read</h2>
+<pre><code>    find(filter, options)
+    findOne(filter, options)
+</code></pre>
+<h2 id="update">Update</h2>
+<pre><code>    updateOne(filter, data, options)
+    updateMany(filter, data, options)
+    replaceOne(filter, data, options)
+</code></pre>
+<h2 id="delete">Delete</h2>
+<pre><code>    deleteOne(filter, options)
+    deleteMany(filter, options)
+</code></pre>
+<p>El filtro puede ser el nombre o cualquier campo</p>
+<p>Para actualizar, por ejemplo, esto da ERROR</p>
+<pre><code>   C:&gt; db.usuarioDatos.updateOne( {nombre: &quot;Juan&quot;}, {campo_añadido: &quot;nuevo campo&quot;} )
+</code></pre>
+<ul>
+<li>
+<p>PORQUE? porque para actualizar, se usan ATOMIC OPERATORS</p>
+</li>
+<li>
+<p>En este caso $set, debo enmarcar entre llaves el objeto</p>
+<pre><code>  C:&gt; db.usuarioDatos.updateMany( { },  { $set {campo_añadido: &quot;nuevo campo&quot;} } )
+</code></pre>
+</li>
+<li>
+<p>En lugar de updateOne, puedo usar updateMany({ }), con el objeto vacío, para que le agregue el nuevo campo a todos los documentos</p>
+</li>
+</ul>
+<p>Para borrarlos todos puedo usar deleteMany con el filtro 'campo_añadido'
+También podría haber usado deleteMany({ }) con un objeto vacío para borrarlos todos</p>
+<pre><code>    C:&gt; db.usuarioDatos.deleteMany({campo_añadido:&quot;nuevo campo&quot;})
+</code></pre>
+<h1 id="insertmany">insertMany</h1>
+<p>Para usar insertMany hay que colocar los objetos en un arreglo llamado matriz, separado por comas</p>
+<pre><code>     C:&gt; db.usuarios.insertMany( [ { objeto1: objeto }, { objeto2: objeto } ] )
+</code></pre>
+<h1 id="find">find</h1>
+<p>find nos muestra los documentos que cumplan esa condición/filtro</p>
+<pre><code>    C:&gt; db.usuario.find(nombre:&quot;Juan&quot;)
+</code></pre>
+<ul>
+<li>
+<p>findOne nos muestra el primero que se insertó que encuentre con esa condición/filtro a travñes del id</p>
+</li>
+<li>
+<p>Si quisiera buscar mayores de 25 usaría el atomic operator $gt de &quot;greater than&quot;</p>
+<pre><code>  C:&gt; db.usuario.findOne( { edad: { $gt: 25 } } )
+</code></pre>
+</li>
+</ul>
+<h1 id="updateone-update-replace">updateOne, update, replace</h1>
+<p>Para actualizar usaremos el id del objeto y el atomic operator $set</p>
+<pre><code>    C:&gt; db.usuarios.updateOne( {_id:ObjectId(&quot;675476345364&quot;) }, { $set:{ alta: false} } )
+</code></pre>
+<ul>
+<li>
+<p>Con el update a secas funcionaría igual</p>
+</li>
+<li>
+<p>Con replace debería introducir todos los datos que quiero actualizar, ya que lo que introduzca es lo que será el documento</p>
+</li>
+</ul>
+<h1 id="find-y-el-objeto-cursor">find y el objeto cursor</h1>
+<p>find no devuelve todos los datos, solo los primeros 20 por defecto</p>
+<ul>
+<li>
+<p>Se puede forzar para que los muestre todos</p>
+<pre><code>  C:&gt;db.nombre.find().toArray()
+</code></pre>
+</li>
+<li>
+<p>También se puede usar el forEach</p>
+<pre><code>  C:&gt; db.nombre.forEach(nombre) =&gt;{ printjson(nombre) }
+</code></pre>
+</li>
+<li>
+<p>.pretty funciona solo con find, no con findOne ni ningún otro</p>
+</li>
+</ul>
+<h1 id="proyecci%C3%B3n-en-mongodb">Proyección en MongoDB</h1>
+<p>Cómo hacer para que devuelva solo un campo</p>
+<ul>
+<li>
+<p>Para esto se usa la proyección.</p>
+</li>
+<li>
+<p>Se pone el find con un objeto vacío y solo se usa 1 o 0.</p>
+</li>
+<li>
+<p>Si quiero que lo imprima uso 1</p>
+<pre><code>          C:&gt; db.nombres.find( {}, {nombre: 1} )
+</code></pre>
+</li>
+<li>
+<p>Si quiero exclui el id, le pongo un 0 <code>(se incluye por defecto)</code></p>
+<pre><code>          C:&gt; db.nombres.find( {}, {nombre: 1, _id: 0} )
+</code></pre>
+</li>
+<li>
+<p>En la proyección se excluye todo menos el campo seleccionado con un 1 y el id que viene por defecto</p>
+</li>
+</ul>
+<hr>
+<h1 id="documentos-y-matrices-incrustados">Documentos y matrices incrustados</h1>
+<p>Un documento puede tener otros documentos incrustados, y a su vez dentro de estos otros.</p>
+<ul>
+<li>
+<p>Se puede llegar hasta 100 niveles, que es mucho y casi nunca se utiliza</p>
+</li>
+<li>
+<p>Hay un máximo de 16 MB por documento</p>
+</li>
+<li>
+<p>Además de documentos también se pueden incrustar matrices<code>arreglos</code></p>
+</li>
+<li>
+<p>Con updateMany, si quiero actualizarlos todos, empiezo con un objeto vacío</p>
+<pre><code>   C:&gt; db.nombres.updateMany( {}, { $set: {estado:{descripcion:&quot;activo&quot;, actualizado: true } } } )
+</code></pre>
+</li>
+</ul>
+<h1 id="matrices">Matrices</h1>
+<pre><code>    C:&gt; db.nombres.updateOne( {nombre: &quot;Juan&quot;}, {$set: {aficiones: [&quot;malabarismo&quot;, &quot;windsurf&quot;, &quot;pingpong&quot;] } } )
+</code></pre>
+<h1 id="accediendo-a-los-datos-estructurados">Accediendo a los datos estructurados</h1>
+<p>Para acceder uso la notación de punto</p>
+<pre><code>    C:&gt; db.nombres.findOne( { nombre: &quot;Juan&quot; } ).aficiones
+</code></pre>
+<p>Si quiero que me devuelva los documentos donde aparezca el campo de un objeto interno de otro objeto</p>
+<pre><code>    C:&gt; db.nombres.find( {objeto.objeto_interno: &quot;campo&quot;} ).pretty()
+</code></pre>
+<p>Puede meterse dentro de la matriz donde aficiones es cantar</p>
+<pre><code>    C:&gt;db.nombres.find( {aficiones: &quot;cantar&quot;} )
+</code></pre>
+
+</body>
+</html>
