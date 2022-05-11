@@ -67,7 +67,7 @@ h2ID.removeAttributeNode(h2IdRemove)
 
 - Tambien hay 2 propiedades
 **************************************************
-Element.Attributes : Devuelve una especie de array llamado nodeMap; para seleccionar un elemento puedo usar corchetes
+Element.attributes : Devuelve una especie de array llamado nodeMap; para seleccionar un elemento puedo usar corchetes
 Element.ownerElement : si se eliminó el atributo devuelve null
 
 -----------------------------------------------------------

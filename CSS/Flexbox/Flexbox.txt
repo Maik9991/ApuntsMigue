@@ -1,0 +1,5 @@
+- Colocar display:flex en el padre
+
+- 2 direcciones, flex-direction: row y column, row-reverse y column-reverse
+
+- 

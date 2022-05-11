@@ -36,10 +36,10 @@ import BebidasContext from '../components/context/BebidasProvider'
 
 const useBebidas = ()=>{
     
-    useBebidas(BebidasContext)
+    useContext(BebidasContext)
     }
 ~~~
-- Envuelvo la App en el Provider
+- Envuelvo la App en el Provider: IMPORTANTE!!
 ~~~js
 import {BebidaProvider} from "../components/context/BebidasProvider'
 
@@ -55,7 +55,7 @@ function App() {
 
 export default App
 ~~~
-- El componente de Provider queda así
+- El componente de Provider queda así, con children en las props
 ~~~jsx
 import { createContext } from 'react'
 

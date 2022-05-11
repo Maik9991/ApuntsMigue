@@ -1,0 +1,54 @@
+
+- En javascript todo son objetos
+
+- Todos parten de una clase genérica que es la clase Object
+
+-----------------
+function Persona(){}
+------------------
+
+- Para definir una clase hay que crear una función con el nombre de la clase
+
+- Por convención se usa mayúscula para la primera letra
+
+- Con esto ya puedo instanciar la clase
+
+------------
+let gilbert  = new Persona()
+--------------
+
+
+- Javascript es un lenguaje basado en prototipos
+
+- No se Tiene la palabra reservada class
+
+- La instanciación crea un objeto genérico de tipo Object
+
+- Está asignando al prototipo la función constructora
+
+- Al iniciarla esta ejecutándola automáticamente
+
+- Devuelve ese objeto que ha creado de tipo Object pero cuyo prototipo es la clase constructora
+
+- En la instancia gilbert tengo la referencia a ese nuevo objeto
+
+- Se le cambia el prototipo para que apunte a la función constructora Persona
+
+- Esto es lo que permite tener acceso a las propiedades y métodos de la clase
+
+-------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

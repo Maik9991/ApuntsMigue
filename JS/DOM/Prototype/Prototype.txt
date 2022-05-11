@@ -1,0 +1,3 @@
+- Prototype es una propiedad del objeto Object.
+
+- es heredada por el resto de los objetos que nacen de esta clase genérica

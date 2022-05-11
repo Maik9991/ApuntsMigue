@@ -51,5 +51,5 @@ window.addEventListener('load', lanzador, false)
 
 - Para remover
 
-boton.removeAddEventListener("click", soyBoton , false)
+boton.removeEventListener("click", soyBoton , false)
 

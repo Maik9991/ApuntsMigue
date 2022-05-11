@@ -1,0 +1,38 @@
+
+- En js hay tres tipos de propiedades
+
+******************************************
+- Las estáticas: son las que pertenecen a la clase. Dependen propiamente de la clase y no van a estar
+                 disponibles en el prototipo de la instancia
+
+- las públicas: son propiedades accesibles por fuera de la clase mediante una instancia, también para modificarlas
+
+- las privadas
+********************************************
+
+- Estática: es propia de la clase, no se puede acceder al instanciar
+
+- Ejemplo de propiedad estática
+
+-------------------
+document.write(Math.PI)
+--------------------
+
+- La única forma de crear una propiedad estática es por fuera
+
+--------------------------------------------------
+Persona.NOMBRE = "Gilbert"
+--------------------------------------------------
+
+- Para crear propiedades públicas se usa la palabra this
+
+------------------------------------------------------
+function Persona{
+    this.nombre = "Pepita"
+}
+
+yo.nombre = "Jonás"
+-----------------------------------------------------
+
+- Se puede decir que una clas es como una variable que adquiere valores y métodos
+
